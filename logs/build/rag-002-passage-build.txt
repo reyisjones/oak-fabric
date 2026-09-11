@@ -1,0 +1,57 @@
+ Image oak-fabric-api Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 534B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 390B 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.14.0-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 94B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.14.0-slim@sha256:0aecac02dc3d4c5dbb024b753af084cafe41f5416e02193f1ce345d671ec966e
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 5.51kB 0.0s done
+#6 DONE 0.0s
+
+#7 [3/5] COPY requirements.txt .
+#7 CACHED
+
+#8 [2/5] WORKDIR /app
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt && useradd --uid 10001 --create-home app
+#9 CACHED
+
+#10 [5/5] COPY src ./src
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.0s done
+#11 writing image sha256:069834b2a3727021f884902cc1bad795b6980d31afb64559fe9dd006ed150ec0 done
+#11 naming to docker.io/library/oak-fabric-api done
+#11 DONE 0.0s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image oak-fabric-api Built
+ Container oak-fabric-minio-1 Running
+ Container oak-fabric-postgres-1 Running
+ Container oak-fabric-api-1 Recreate
+ Container oak-fabric-api-1 Recreated
+ Container oak-fabric-api-1 Starting
+ Container oak-fabric-api-1 Started
+ Container oak-fabric-api-1 Waiting
+ Container oak-fabric-postgres-1 Waiting
+ Container oak-fabric-minio-1 Waiting
+ Container oak-fabric-postgres-1 Healthy
+ Container oak-fabric-minio-1 Healthy
+ Container oak-fabric-api-1 Healthy

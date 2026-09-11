@@ -1,0 +1,39 @@
+ModelError Model request failed; check LM Studio availability and model configuration cause: <HTTPError 400: 'Bad Request'>
+Traceback (most recent call last):
+  File "/app/src/embeddings/client.py", line 23, in _post
+    with urllib.request.urlopen(request, timeout=120) as response:
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.14/urllib/request.py", line 187, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.14/urllib/request.py", line 493, in open
+    response = meth(req, response)
+  File "/usr/local/lib/python3.14/urllib/request.py", line 602, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/usr/local/lib/python3.14/urllib/request.py", line 531, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/local/lib/python3.14/urllib/request.py", line 464, in _call_chain
+    result = func(*args)
+  File "/usr/local/lib/python3.14/urllib/request.py", line 611, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 400: Bad Request
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 12, in <module>
+  File "/app/src/rag/answer.py", line 66, in query
+    return build_answer(question, chunks, model) | {"retrieval_count": len(chunks)}
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/src/rag/answer.py", line 13, in build_answer
+    result = model._post("/chat/completions", {
+        "model": model.generation_model,
+    ...<13 lines>...
+        ],
+    })
+  File "<stdin>", line 7, in traced
+  File "/app/src/embeddings/client.py", line 26, in _post
+    raise ModelError("Model request failed; check LM Studio availability and model configuration") from exc
+src.embeddings.client.ModelError: Model request failed; check LM Studio availability and model configuration

@@ -1,0 +1,2 @@
+ModelError Model request failed; check LM Studio availability and model configuration
+{"error":"'response_format.type' must be 'json_schema' or 'text'"}

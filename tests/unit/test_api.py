@@ -12,7 +12,7 @@ def test_health_contract(monkeypatch):
         assert response.status_code == 200
         assert response.json() == {"status": "ok", "service": "oak-fabric"}
         assert client.post("/health").status_code == 405
-        assert client.get("/ingest/document").status_code == 404
+        assert client.get("/ingest/document").status_code == 405
 
 
 def test_production_hides_interactive_docs(monkeypatch):
@@ -40,3 +40,23 @@ def test_invalid_environment_fails_before_serving(monkeypatch, value):
 def test_valid_environment(monkeypatch, value):
     monkeypatch.setenv("APP_ENV", value)
     assert Settings.from_env().environment == value
+
+
+def test_ingestion_requires_bearer_token(monkeypatch):
+    monkeypatch.setenv('FABRIC_API_KEY', 'unit-test-key')
+    with TestClient(create_app()) as client:
+        assert client.post('/ingest/document?source=test.md', content='text').status_code == 401
+        assert client.post('/ingest/document?source=test.md', content='text', headers={'Authorization': 'Bearer wrong'}).status_code == 401
+
+
+def test_unconfigured_api_is_unavailable(monkeypatch):
+    monkeypatch.delenv('FABRIC_API_KEY', raising=False)
+    with TestClient(create_app()) as client:
+        assert client.post('/ingest/document?source=test.md', content='text').status_code == 503
+
+
+def test_malformed_upload_does_not_call_storage(monkeypatch):
+    monkeypatch.setenv('FABRIC_API_KEY', 'unit-test-key')
+    with TestClient(create_app()) as client:
+        result = client.post('/ingest/document?source=test.pdf', content='not-pdf', headers={'Authorization': 'Bearer unit-test-key'})
+        assert result.status_code == 422

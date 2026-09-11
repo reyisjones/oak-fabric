@@ -6,6 +6,13 @@ services:
       dockerfile: infrastructure/docker/Dockerfile
     environment:
       APP_ENV: ${APP_ENV:-development}
+      FABRIC_API_KEY: ${FABRIC_API_KEY:?Set FABRIC_API_KEY in .env}
+      MODEL_BASE_URL: http://host.docker.internal:1234/v1
+      EMBEDDING_MODEL: text-embedding-nomic-embed-text-v1.5
+      GENERATION_MODEL: google/gemma-4-e4b
+      DB_PASSWORD: ${POSTGRES_APP_PASSWORD:?Set POSTGRES_APP_PASSWORD in .env}
+      MINIO_ACCESS_KEY: oak-app
+      MINIO_SECRET_KEY: ${MINIO_APP_PASSWORD:?Set MINIO_APP_PASSWORD in .env}
     ports:
       - "127.0.0.1:${API_PORT:-8000}:8000"
     healthcheck:
@@ -17,6 +24,7 @@ services:
   postgres:
     image: pgvector/pgvector:0.8.6-pg17
     environment:
+      POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD:?Set POSTGRES_APP_PASSWORD in .env}
       POSTGRES_DB: oak_fabric
       POSTGRES_USER: oak
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
@@ -33,6 +41,7 @@ services:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z
     command: server /data --console-address :9001
     environment:
+      MINIO_APP_PASSWORD: ${MINIO_APP_PASSWORD:?Set MINIO_APP_PASSWORD in .env}
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set MINIO_ROOT_USER in .env}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set MINIO_ROOT_PASSWORD in .env}
     ports:

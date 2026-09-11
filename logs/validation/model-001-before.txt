@@ -1,0 +1,88 @@
+......FFF.....                                                           [100%]
+=================================== FAILURES ===================================
+_____________________ test_rejects_invalid_response[None] ______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10672f850>
+response = None
+
+    @pytest.mark.parametrize('response', [None, [], 42, {}, {'model': 'wrong', 'data': []}, {'model': 'nomic', 'data': []}, {'model': 'nomic', 'data': [{'index': 1, 'embedding': [1.0]*768}]}])
+    def test_rejects_invalid_response(monkeypatch, response):
+>       with pytest.raises(ModelError): client_with(monkeypatch, response).embed(['text'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_embeddings.py:31:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.embeddings.client.ModelClient object at 0x10663bf00>
+texts = ['text'], query = False
+
+    def embed(self, texts: list[str], *, query: bool = False) -> list[list[float]]:
+        if not texts or any(not text.strip() for text in texts):
+            raise ValueError("Embedding inputs must be nonempty")
+        prefix = "search_query: " if query else "search_document: "
+        result = self._post("/embeddings", {"model": self.embedding_model, "input": [prefix + t for t in texts]})
+        try:
+>           if result.get("model") != self.embedding_model:
+               ^^^^^^^^^^
+E           AttributeError: 'NoneType' object has no attribute 'get'
+
+src/embeddings/client.py:34: AttributeError
+___________________ test_rejects_invalid_response[response1] ___________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1067bb200>
+response = []
+
+    @pytest.mark.parametrize('response', [None, [], 42, {}, {'model': 'wrong', 'data': []}, {'model': 'nomic', 'data': []}, {'model': 'nomic', 'data': [{'index': 1, 'embedding': [1.0]*768}]}])
+    def test_rejects_invalid_response(monkeypatch, response):
+>       with pytest.raises(ModelError): client_with(monkeypatch, response).embed(['text'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_embeddings.py:31:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.embeddings.client.ModelClient object at 0x1068386b0>
+texts = ['text'], query = False
+
+    def embed(self, texts: list[str], *, query: bool = False) -> list[list[float]]:
+        if not texts or any(not text.strip() for text in texts):
+            raise ValueError("Embedding inputs must be nonempty")
+        prefix = "search_query: " if query else "search_document: "
+        result = self._post("/embeddings", {"model": self.embedding_model, "input": [prefix + t for t in texts]})
+        try:
+>           if result.get("model") != self.embedding_model:
+               ^^^^^^^^^^
+E           AttributeError: 'list' object has no attribute 'get'
+
+src/embeddings/client.py:34: AttributeError
+______________________ test_rejects_invalid_response[42] _______________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x1067bbf20>
+response = 42
+
+    @pytest.mark.parametrize('response', [None, [], 42, {}, {'model': 'wrong', 'data': []}, {'model': 'nomic', 'data': []}, {'model': 'nomic', 'data': [{'index': 1, 'embedding': [1.0]*768}]}])
+    def test_rejects_invalid_response(monkeypatch, response):
+>       with pytest.raises(ModelError): client_with(monkeypatch, response).embed(['text'])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_embeddings.py:31:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <src.embeddings.client.ModelClient object at 0x1067d7150>
+texts = ['text'], query = False
+
+    def embed(self, texts: list[str], *, query: bool = False) -> list[list[float]]:
+        if not texts or any(not text.strip() for text in texts):
+            raise ValueError("Embedding inputs must be nonempty")
+        prefix = "search_query: " if query else "search_document: "
+        result = self._post("/embeddings", {"model": self.embedding_model, "input": [prefix + t for t in texts]})
+        try:
+>           if result.get("model") != self.embedding_model:
+               ^^^^^^^^^^
+E           AttributeError: 'int' object has no attribute 'get'
+
+src/embeddings/client.py:34: AttributeError
+=========================== short test summary info ============================
+FAILED tests/unit/test_embeddings.py::test_rejects_invalid_response[None] - A...
+FAILED tests/unit/test_embeddings.py::test_rejects_invalid_response[response1]
+FAILED tests/unit/test_embeddings.py::test_rejects_invalid_response[42] - Att...
+3 failed, 11 passed in 0.06s

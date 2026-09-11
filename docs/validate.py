@@ -1,5 +1,6 @@
 """Validate initial planning artifacts; does not validate application behavior."""
 from pathlib import Path
+from datetime import datetime, timezone
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,7 +48,7 @@ for category in ['build', 'runtime', 'validation', 'issues']:
         errors.append(f'Missing log directory: {category}')
 
 result = '\n'.join([
-    'Initial documentation validation — 2026-09-10',
+    f'Documentation validation — {datetime.now(timezone.utc).date().isoformat()}',
     'Command: python3 docs/validate.py',
     f'Checked {len(required)} required artifacts, {len(paths)} Markdown documents, {link_count} local links.',
     'Checked tracking fields, issue fields, log directories, and balanced code fences.',

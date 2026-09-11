@@ -1,22 +1,45 @@
 # Current implementation
 
-Milestone 1.1 provides a local FastAPI application with GET /health, an application factory, environment validation, and nine unit tests. There is no ingestion or storage integration yet.
+Updated: 2026-09-11. The [vision](vision.md) describes future capabilities; this document describes implemented behavior.
 
-- src/api/main.py defines the HTTP contract and development documentation exposure.
-- src/common/config.py validates APP_ENV at application startup.
-- requirements.txt pins runtime dependencies; requirements-dev.txt adds pinned test dependencies.
-- Makefile provides install, test, run, and documentation validation commands.
+```mermaid
+flowchart LR
+  Upload[Authenticated document upload] --> Extract[Markdown or PDF extraction]
+  Extract --> Raw[MinIO original bytes]
+  Extract --> Chunk[Source-linked chunks]
+  Chunk --> Embed[LM Studio Nomic embeddings]
+  Embed --> PG[PostgreSQL metadata and pgvector]
+  PG --> Draft[Draft review]
+  Draft --> Approval[Explicit approval]
+  Approval --> Search[Approved-source cosine search]
+  Search --> Gemma[LM Studio evidence selection]
+  Gemma --> Validate[Exact quote and citation validation]
+  Validate --> Answer[Cited quotations or abstention]
+```
 
-The endpoint reports process liveness only. Python 3.14 local execution was tested. See [test evidence](../../logs/validation/phase-1.1-tests.txt) and [live response](../../logs/validation/phase-1.1-http.json). The [vision](vision.md) describes future capabilities.
+| Component | Responsibility | Dependencies |
+| --- | --- | --- |
+| src/api/main.py | Bounded uploads, bearer authentication, review, approval, search, RAG, liveness | FastAPI |
+| src/common/config.py | Environment selection | Python |
+| src/common/storage.py | Restricted database connections and original-object persistence | psycopg / MinIO client |
+| src/extraction/documents.py | Text extraction and page/source provenance | pypdf |
+| src/chunking/text.py | Deterministic overlapping character windows | Extracted document records |
+| src/embeddings/client.py | LM Studio requests and vector response validation | urllib; Nomic 768 dimensions |
+| src/ingestion/documents.py | Idempotent transactional indexing and explicit revision approval | PostgreSQL / MinIO / embeddings |
+| src/retrieval/search.py | Exact cosine search over approved revisions | pgvector / embeddings |
+| src/rag/answer.py | Select and validate exact source quotations | Gemma / retrieved chunks |
+| infrastructure/docker/bootstrap.py | Additive schema and restricted storage accounts | Administrative Compose access |
 
-## Validated Docker foundation
+## Storage and lifecycle
 
-Compose runs the API, PostgreSQL 17/pgvector 0.8.6, and MinIO with persistent named volumes. All health checks pass. A real vector and object survived storage restart. The API remains independent of storage until document ingestion is implemented. See [ADR-003](../decisions/ADR-003-compose-storage.md) and [container logs](../../logs/runtime/phase-1.2-containers.txt).
+MinIO keeps content-addressed originals in oak-sources/documents. PostgreSQL holds source revisions and chunk metadata/embeddings. Failed embedding/SQL operations do not publish partial document metadata; unindexed source objects may remain for retry. Duplicate source/content imports reuse the existing entry. Approval supersedes older approved revisions of the same source. Draft and superseded entries are excluded from retrieval.
 
-## Document extraction
+The API uses oak_app database credentials and a MinIO user restricted to source-object reads/writes. Root storage credentials stay in the storage containers for explicit bootstrap. Data routes require FABRIC_API_KEY; /health is process liveness and remains public on loopback.
 
-Milestone 2.1 adds `src/extraction/documents.py`: Markdown/PDF bytes become immutable document/section records with SHA-256 identity, source, title, UTC timestamp, and PDF page numbers. Invalid/empty/encrypted/oversized documents fail explicitly. There is no upload endpoint yet. [ADR-004](../decisions/ADR-004-document-extraction.md) records limitations. Twenty-two tests pass in [validation evidence](../../logs/validation/phase-2.1-tests.txt).
+## Validation and limits
 
-## Chunking under milestone 2.2
+Foundation container startup/persistence and real document ingestion are validated. Retrieval and RAG passed the initial three-case live evaluation, with evidence in [STATUS](../STATUS.md). The first answer format returns exact quotations, not free-form summaries. No graph, image ingestion, OCR, generated encyclopedia, or POC execution exists yet.
 
-`src/chunking/text.py` creates deterministic overlapping character windows within each extracted section/page. Every chunk includes required provenance and empty technology/architecture/tag lists until evidence supports enrichment. Stable IDs include source identity and offsets. No embeddings or semantic retrieval are implemented yet. Storage currently contains only dedicated validation probes, not indexed documents.
+Single-host HTTP and bootstrap credentials are for this local lab. Hostile PDF uploads need stronger process limits before external exposure. Embedding responses must match the configured model and 768-dimensional index. Switching models requires a separate index migration. Tags do not constitute immutable image digests.
+
+See [ADR-005](../decisions/ADR-005-local-model-ingestion.md) and [ADR-006](../decisions/ADR-006-cited-extractive-rag.md).

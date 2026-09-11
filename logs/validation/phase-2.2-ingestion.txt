@@ -1,0 +1,1 @@
+{"result": "PASS", "entry_id": "fd2df50fa15bac5ea1c3b923fb52c5018e0211170f1b5ce5f9154714bf3cfa03", "chunks": 4, "dimensions": 768, "deduplicated": true, "source_bytes_preserved": true, "restricted_db_role": true, "status": "draft"}

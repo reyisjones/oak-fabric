@@ -1,0 +1,2 @@
+{"check": "FailedModel", "result": "PASS", "partial_document_rows": 0}
+{"check": "InvalidVectorModel", "result": "PASS", "partial_document_rows": 0}

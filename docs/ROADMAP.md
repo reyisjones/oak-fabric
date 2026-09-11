@@ -1,30 +1,28 @@
 # Sequential roadmap
 
-Complete and validate each milestone before the next. Milestone 1.1 is validated (nine tests and a live health response); milestone 1.2 is validated (healthy containers and persistent storage round-trips). Milestone 2.1 is validated (22 cumulative tests). Milestone 2.2 is next. Conditional additions require a documented use case; they are not prerequisites for the core platform.
+Updated: 2026-09-11. Complete and validate each milestone before the next. Conditional additions require a documented workload need.
 
-| ID | Deliverable | Required completion evidence |
-| --- | --- | --- |
-| 0 | Assessment, inventory, architecture, tracking, first assignment | Passing documentation validator and reviewed artifact inventory |
-| 1.1 | Configuration, pinned dependencies, minimal health API and tests | Unit tests and successful local health response |
-| 1.2 | Compose API, PostgreSQL/pgvector, MinIO, volumes | Compose validation; all services healthy; extension query; object round-trip; restart persistence |
-| 2.1 | Markdown/PDF extraction and provenance | Fixture tests including page references and malformed input |
-| 2.2 | Chunking, embeddings and pgvector ingestion | Chunk metadata tests; real model/vector round-trip; repeat ingestion without duplication |
-| 2.3 | Retrieval and cited RAG | Expected-source evaluation; unsupported questions abstain; citations resolve |
-| 3.1 | Image preservation and structured analysis | Real image fixture, checksum unchanged, entity/relationship accuracy review, uncertainty labels |
-| 3.2 | Markdown/Mermaid generation and approval | Required sections/files; Mermaid parse; valid links; draft excluded until explicit approval |
-| 3.3 | First image-to-cited-answer slice | Image → JSON → documentation → metadata/vector → expected cited answer |
-| 4.1 | Neo4j schema and graph ingestion | Real graph round-trip; idempotency; dangling relationship rejection |
-| 4.2 | Bounded graph queries | Expected paths and entity extraction evaluation |
-| 5 | GraphRAG fusion | Source-preserving context; graph traversal and faithfulness evaluations |
-| 6 | Specialized controlled workflows | Tool boundaries, failure/retry and validation tests; external research only on request |
-| 7 | Encyclopedia, cross-links, standalone HTML | Approved entry generation; link/duplicate checks; visual inspection |
-| 8 | POC generator | Generated README, Compose, service, data, diagram, configuration, tests and tutorial; isolated build/start/test |
-| 9 | Justified data platform additions | One ADR and measured workload per tool; corresponding integration test |
-| 10 | OpenTelemetry, Prometheus, Grafana | Correlated trace; scraped metric; dashboard evidence; secret redaction |
-| 11 | Kubernetes manifests and Helm | Manifest/schema and chart validation; deployment on a test cluster |
+| ID | Status | Deliverable | Required completion evidence |
+| --- | --- | --- | --- |
+| 0 | Complete | Assessment, inventory, architecture, tracking, first assignment | Documentation validator and artifact inventory |
+| 1.1 | Complete | Configuration, pinned dependencies, minimal health API | Unit tests and live health response |
+| 1.2 | Complete | Compose API, PostgreSQL/pgvector, MinIO and volumes | Healthy services, vector/object round-trips, restart persistence |
+| 2.1 | Complete | Markdown/PDF extraction and provenance | Text/page fixtures, malformed/oversized input rejection |
+| 2.2 | Complete | Chunking, embeddings and pgvector ingestion | Real Nomic vectors, source-byte equality, duplicate no-op, rollback fault tests |
+| 2.3 | Complete | Retrieval and cited RAG | Expected sources and complete storage facts; exact passage support; unsupported-question abstention |
+| 3.1 | Pending source image | Preserve image and structured analysis | Real diagram, checksum unchanged, component/relationship accuracy and uncertainty review |
+| 3.2 | Pending | Markdown/Mermaid generation and approval | Required files, Mermaid parse, valid links, draft exclusion |
+| 3.3 | Pending | First image-to-cited-answer slice | Image → JSON → documentation → metadata/vector → expected cited answer |
+| 4.1 | Pending | Neo4j schema and ingestion | Real graph round-trip, idempotency, dangling relationship rejection |
+| 4.2 | Pending | Bounded graph queries | Expected paths and entity extraction evaluation |
+| 5 | Pending | GraphRAG fusion | Source-preserving context and traversal/faithfulness evaluations |
+| 6 | Pending | Controlled specialized workflows | Tool boundaries, failures/retries, external research only on request |
+| 7 | Pending | Encyclopedia, cross-links and HTML | Approved entry generation, link/duplicate checks, visual inspection |
+| 8 | Pending | POC generator | Generated project builds, starts and passes tests in isolation |
+| 9 | Conditional | Data platform additions | ADR and measured workload per tool; integration validation |
+| 10 | Pending | OpenTelemetry, Prometheus and Grafana | Correlated trace, scraped metric, dashboard and secret-redaction checks |
+| 11 | Pending | Kubernetes and Helm | Manifest/chart checks and actual test-cluster deployment |
 
-For every issue: capture error → identify root cause → document → apply one focused fix → rerun affected validation → record outcome. A failed required test blocks its milestone. Mocks alone do not prove service/model integration.
+Phase 2 evidence: [57 unit tests](../logs/validation/phase-2-final-unit.txt), [real ingestion](../logs/validation/phase-2.2-ingestion.txt), [rollback faults](../logs/validation/phase-2.2-failure-recovery.txt), and [live RAG evaluation](../logs/validation/phase-2.3-passage-evaluation.jsonl). The initial three-case RAG corpus establishes only a baseline; it does not demonstrate general answer quality.
 
-The Phase 1 Neo4j ordering conflict is resolved explicitly in [ADR-001](decisions/ADR-001-incremental-foundation.md). Optional Azure deployment is outside the initial core scope.
-
-Current update: 2.1 is complete. The chunking portion of 2.2 passes tests; embeddings and persistent document ingestion are pending model setup. A chunking test is not evidence that 2.2 is complete.
+For every issue: capture → identify root cause → document → one focused fix → rerun affected validation → record outcome. Mocks do not prove service integration. The Neo4j ordering conflict is resolved in [ADR-001](decisions/ADR-001-incremental-foundation.md). Optional Azure deployment is outside the initial core scope.

@@ -1,0 +1,25 @@
+[
+  {
+    "question": "Where are original architecture documents and images preserved?",
+    "expected_source": "tests/fixtures/storage-guide.md",
+    "abstain": false,
+    "expected_phrases": [
+      "MinIO"
+    ]
+  },
+  {
+    "question": "Which database stores document metadata and which extension stores embeddings?",
+    "expected_source": "tests/fixtures/storage-guide.md",
+    "abstain": false,
+    "expected_phrases": [
+      "PostgreSQL",
+      "pgvector"
+    ]
+  },
+  {
+    "question": "What is the annual license cost of MinIO in US dollars?",
+    "expected_source": null,
+    "abstain": true,
+    "expected_phrases": []
+  }
+]

@@ -1,0 +1,5 @@
+Audit of saved second evaluation answer
+Expected: PostgreSQL and pgvector
+Actual: PostgreSQL stores document metadata. [1]
+Missing: ['pgvector']
+Result: FAIL (incomplete multi-part answer)

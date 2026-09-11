@@ -1,18 +1,18 @@
 # Component map
 
-Foundation API and storage containers are validated. Feature-level ingestion, retrieval, and lifecycle implementation remain pending.
+Foundation, document ingestion, review/approval, embeddings, and source-grounded RAG are validated. Image and graph capabilities remain pending.
 
 | Component | Responsibility | Technology | Dependencies | Phase | Status |
 | --- | --- | --- | --- | --- | --- |
 | Local runtime | Reproducible services and volumes | Docker Compose | Docker daemon | 1 | Validated |
 | API | Health, bounded ingestion and queries | FastAPI / Python | Configuration and stores | 1 | Validated |
-| Metadata and vector index | Provenance, lifecycle, similarity | PostgreSQL / pgvector | Persistent volume | 1–2 | Pending |
+| Metadata and vector index | Provenance, lifecycle, similarity | PostgreSQL / pgvector | Persistent volume | 1–2 | Validated for documents |
 | Original storage | Immutable source bytes | MinIO | Persistent volume | 1 | Validated |
-| Document processing | Markdown/PDF extraction, chunks | Python | Source storage | 2 | Pending |
-| Model adapter | Embedding and text/vision inference | Ollama or compatible HTTP API | Configured models | 2–3 | Pending |
-| RAG | Evidence retrieval and cited answers | Python | pgvector and model adapter | 2 | Pending |
+| Document processing | Markdown/PDF extraction, chunks | Python | Source storage | 2 | Validated |
+| Model adapter | Embedding and text/vision inference | LM Studio compatible HTTP API | Configured models | 2–3 | Text/embeddings validated; vision pending |
+| RAG | Evidence retrieval and cited answers | Python | pgvector and model adapter | 2 | Validated |
 | Image workflow | Image to validated model and documents | Vision model / Python | RAG, source preservation | 3 | Pending |
-| Review workflow | Draft correction and explicit approval | Metadata state / Markdown | Image workflow | 3 | Pending |
+| Review workflow | Draft correction and explicit approval | Metadata state / Markdown | Ingestion | 2–3 | Document approval validated; image correction pending |
 | Knowledge graph | Entities and explicit relationships | Neo4j | Validated image/RAG slice | 4 | Deferred |
 | GraphRAG | Fuse graph and vector evidence | Python | Neo4j / RAG | 5 | Pending |
 | Agents | Controlled specialized operations | Python functions | Validated retrieval and rendering | 6 | Pending |

@@ -1,0 +1,19 @@
+BEGIN
+CREATE ROLE
+ALTER ROLE
+CREATE TABLE
+INSERT 0 1
+CREATE TABLE
+CREATE TABLE
+CREATE INDEX
+GRANT
+GRANT
+GRANT
+GRANT
+GRANT
+COMMIT
+Bucket created successfully `oak/oak-sources`.
+Created policy `oak-app-policy` successfully.
+Attached Policies: [oak-app-policy]
+To User: oak-app
+PASS: schema migration and restricted storage accounts applied

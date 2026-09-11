@@ -88,3 +88,42 @@ BUILD-002 resolution: public image pull, inherited-config build, and Compose hea
 - Fix: Repeated the same read-only request outside the sandbox.
 - Validation: HTTP 200 for model listing, two 768-dimensional embeddings, and generation returning API_OK. The Compose API container also reaches host.docker.internal:1234. See [preflight](../validation/lmstudio-preflight-2026-09-11.json).
 - Status: Resolved.
+
+## RAG-001
+
+- ID: RAG-001
+- Date: 2026-09-11
+- Component: LM Studio structured generation
+- Symptom: First live RAG query returned 502 after draft exclusion succeeded.
+- Root Cause: LM Studio rejected response_format.type=json_object with HTTP 400; this server accepts json_schema or text.
+- Fix: Replace generic JSON mode with an explicit evidence JSON schema; retain exact quote/citation validation.
+- Validation: Original failure in [evaluation](../validation/phase-2.3-evaluation.jsonl); exact provider error in [diagnostic](rag-001-provider-error.txt). Live re-evaluation pending.
+- Status: Fix applied, validation pending.
+
+RAG-001 validation: supported JSON schema requests now succeed. Two source questions and the unsupported pricing question passed the original checks in [retry evidence](../validation/phase-2.3-evaluation-retry.jsonl). Status: resolved. A separate answer-completeness gap was found during output inspection below.
+
+## RAG-002
+
+- ID: RAG-002
+- Date: 2026-09-11
+- Component: Answer completeness and evaluation
+- Symptom: A two-part question requested database and vector extension, but the answer named only PostgreSQL.
+- Root Cause: Evidence selection did not explicitly require coverage of all question parts; the initial evaluation checked only the database keyword.
+- Fix: Require expected phrases for both parts in evaluation and explicitly instruct evidence selection to cover every answerable part using additional exact quotes.
+- Validation: Missing pgvector reproduced from saved model output in [coverage audit](rag-002-coverage.txt). Updated live evaluation pending.
+- Status: Fix under validation.
+
+RAG-002 follow-up: the prompt-only fix did not improve the two-part answer; stricter live evaluation still failed (see [failed retry](../validation/phase-2.3-complete-evaluation.jsonl)). Revised focused fix: after validating the model's exact quote, return its full bounded source chunk as the cited passage. This preserves surrounding facts and qualifications instead of trusting the model to choose sufficient sentence boundaries. The answer remains source text, not a generated paraphrase; broader multi-source completeness is still an evaluation concern.
+
+RAG-002 resolution: passage preservation passed the stricter live evaluation for both PostgreSQL and pgvector, plus original-source retrieval and unsupported-pricing abstention. Evidence: [final passage evaluation](../validation/phase-2.3-passage-evaluation.jsonl). Status: resolved for the tested cases; broad corpus completeness remains a documented evaluation limitation.
+
+## MODEL-001
+
+- ID: MODEL-001
+- Date: 2026-09-11
+- Component: Embedding response validation
+- Symptom: Malformed JSON root types (null/list/integer) raised an uncaught AttributeError instead of the model-service error.
+- Root Cause: Validation assumed an object root before calling get().
+- Fix: Convert the root-type AttributeError into the existing sanitized ModelError boundary.
+- Validation: Three regression failures reproduced in [before](../validation/model-001-before.txt); all 14 embedding tests pass in [after](../validation/model-001-after.txt).
+- Status: Resolved.

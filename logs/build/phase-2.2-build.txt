@@ -1,0 +1,145 @@
+ Image oak-fabric-api Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 534B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 390B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.14.0-slim
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 94B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.14.0-slim@sha256:0aecac02dc3d4c5dbb024b753af084cafe41f5416e02193f1ce345d671ec966e
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 12.13kB done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt .
+#8 DONE 0.0s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt && useradd --uid 10001 --create-home app
+#9 1.459 Collecting annotated-doc==0.0.5 (from -r requirements.txt (line 1))
+#9 1.638   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#9 1.699 Collecting annotated-types==0.8.0 (from -r requirements.txt (line 2))
+#9 1.766   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#9 1.845 Collecting anyio==4.15.1 (from -r requirements.txt (line 3))
+#9 1.900   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#9 1.984 Collecting argon2-cffi==25.1.0 (from -r requirements.txt (line 4))
+#9 2.036   Downloading argon2_cffi-25.1.0-py3-none-any.whl.metadata (4.1 kB)
+#9 2.105 Collecting argon2-cffi-bindings==26.1.0 (from -r requirements.txt (line 5))
+#9 2.159   Downloading argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl.metadata (7.5 kB)
+#9 2.239 Collecting certifi==2026.7.22 (from -r requirements.txt (line 6))
+#9 2.290   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+#9 2.524 Collecting cffi==2.1.1 (from -r requirements.txt (line 7))
+#9 2.575   Downloading cffi-2.1.1-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.whl.metadata (2.5 kB)
+#9 2.632 Collecting click==8.5.0 (from -r requirements.txt (line 8))
+#9 2.682   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 2.796 Collecting fastapi==0.141.1 (from -r requirements.txt (line 9))
+#9 2.847   Downloading fastapi-0.141.1-py3-none-any.whl.metadata (27 kB)
+#9 2.920 Collecting h11==0.16.0 (from -r requirements.txt (line 10))
+#9 2.972   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#9 3.033 Collecting idna==3.19 (from -r requirements.txt (line 11))
+#9 3.085   Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+#9 3.167 Collecting minio==7.2.20 (from -r requirements.txt (line 12))
+#9 3.219   Downloading minio-7.2.20-py3-none-any.whl.metadata (6.5 kB)
+#9 3.291 Collecting psycopg==3.3.5 (from -r requirements.txt (line 13))
+#9 3.342   Downloading psycopg-3.3.5-py3-none-any.whl.metadata (4.3 kB)
+#9 3.605 Collecting psycopg-binary==3.3.5 (from -r requirements.txt (line 14))
+#9 3.655   Downloading psycopg_binary-3.3.5-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#9 3.707 Collecting pycparser==3.0 (from -r requirements.txt (line 15))
+#9 3.756   Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+#9 3.852 Collecting pycryptodome==3.23.0 (from -r requirements.txt (line 16))
+#9 3.903   Downloading pycryptodome-3.23.0-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (3.4 kB)
+#9 4.065 Collecting pydantic==2.13.5 (from -r requirements.txt (line 17))
+#9 4.114   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+#9 4.911 Collecting pydantic_core==2.46.5 (from -r requirements.txt (line 18))
+#9 4.961   Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.6 kB)
+#9 5.053 Collecting pypdf==6.18.0 (from -r requirements.txt (line 19))
+#9 5.103   Downloading pypdf-6.18.0-py3-none-any.whl.metadata (7.5 kB)
+#9 5.177 Collecting starlette==1.6.0 (from -r requirements.txt (line 20))
+#9 5.228   Downloading starlette-1.6.0-py3-none-any.whl.metadata (6.4 kB)
+#9 5.284 Collecting typing-inspection==0.4.4 (from -r requirements.txt (line 21))
+#9 5.335   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+#9 5.400 Collecting typing_extensions==4.16.0 (from -r requirements.txt (line 22))
+#9 5.454   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#9 5.532 Collecting urllib3==2.7.0 (from -r requirements.txt (line 23))
+#9 5.582   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+#9 5.657 Collecting uvicorn==0.52.4 (from -r requirements.txt (line 24))
+#9 5.710   Downloading uvicorn-0.52.4-py3-none-any.whl.metadata (6.6 kB)
+#9 5.808 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+#9 5.857 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#9 5.906 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#9 5.975 Downloading argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
+#9 6.031 Downloading argon2_cffi_bindings-26.1.0-cp310-abi3-manylinux_2_26_aarch64.manylinux_2_28_aarch64.whl (27 kB)
+#9 6.085 Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+#9 6.146 Downloading cffi-2.1.1-cp314-cp314-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (222 kB)
+#9 6.213 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 6.270 Downloading fastapi-0.141.1-py3-none-any.whl (131 kB)
+#9 6.326 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 6.375 Downloading idna-3.19-py3-none-any.whl (68 kB)
+#9 6.432 Downloading minio-7.2.20-py3-none-any.whl (93 kB)
+#9 6.484 Downloading psycopg-3.3.5-py3-none-any.whl (213 kB)
+#9 6.548 Downloading psycopg_binary-3.3.5-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (6.8 MB)
+#9 6.737    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 MB 37.4 MB/s  0:00:00
+#9 6.787 Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+#9 6.839 Downloading pycryptodome-3.23.0-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.2 MB)
+#9 6.955    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 17.3 MB/s  0:00:00
+#9 7.012 Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+#9 7.076 Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.0 MB)
+#9 7.102    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 92.3 MB/s  0:00:00
+#9 7.156 Downloading pypdf-6.18.0-py3-none-any.whl (393 kB)
+#9 7.212 Downloading starlette-1.6.0-py3-none-any.whl (75 kB)
+#9 7.265 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#9 7.321 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 7.374 Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+#9 7.430 Downloading uvicorn-0.52.4-py3-none-any.whl (79 kB)
+#9 7.495 Installing collected packages: urllib3, typing_extensions, pypdf, pycryptodome, pycparser, psycopg-binary, psycopg, idna, h11, click, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic_core, cffi, anyio, starlette, pydantic, argon2-cffi-bindings, fastapi, argon2-cffi, minio
+#9 9.350
+#9 9.352 Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 argon2-cffi-25.1.0 argon2-cffi-bindings-26.1.0 certifi-2026.7.22 cffi-2.1.1 click-8.5.0 fastapi-0.141.1 h11-0.16.0 idna-3.19 minio-7.2.20 psycopg-3.3.5 psycopg-binary-3.3.5 pycparser-3.0 pycryptodome-3.23.0 pydantic-2.13.5 pydantic_core-2.46.5 pypdf-6.18.0 starlette-1.6.0 typing-inspection-0.4.4 typing_extensions-4.16.0 urllib3-2.7.0 uvicorn-0.52.4
+#9 9.352 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 9.565
+#9 9.565 [notice] A new release of pip is available: 25.2 -> 26.2.1
+#9 9.565 [notice] To update, run: pip install --upgrade pip
+#9 DONE 10.0s
+
+#10 [5/5] COPY src ./src
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.2s done
+#11 writing image sha256:67c93ea90ba02eefe1608600568c315dfc57c4faf5a3e7ce05d91f687f180cdc done
+#11 naming to docker.io/library/oak-fabric-api done
+#11 DONE 0.2s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image oak-fabric-api Built
+ Container oak-fabric-minio-1 Recreate
+ Container oak-fabric-postgres-1 Recreate
+ Container oak-fabric-api-1 Recreate
+ Container oak-fabric-postgres-1 Recreated
+ Container oak-fabric-minio-1 Recreated
+ Container oak-fabric-api-1 Recreated
+ Container oak-fabric-api-1 Starting
+ Container oak-fabric-postgres-1 Starting
+ Container oak-fabric-minio-1 Starting
+ Container oak-fabric-api-1 Started
+ Container oak-fabric-minio-1 Started
+ Container oak-fabric-postgres-1 Started
+ Container oak-fabric-postgres-1 Waiting
+ Container oak-fabric-minio-1 Waiting
+ Container oak-fabric-api-1 Waiting
+ Container oak-fabric-postgres-1 Healthy
+ Container oak-fabric-minio-1 Healthy
+ Container oak-fabric-api-1 Healthy
