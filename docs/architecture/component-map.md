@@ -1,13 +1,13 @@
 # Component map
 
-All implementation statuses below are pending or conditional. Only planning documentation exists.
+Foundation API and storage containers are validated. Feature-level ingestion, retrieval, and lifecycle implementation remain pending.
 
 | Component | Responsibility | Technology | Dependencies | Phase | Status |
 | --- | --- | --- | --- | --- | --- |
-| Local runtime | Reproducible services and volumes | Docker Compose | Docker daemon | 1 | Pending; daemon unavailable |
-| API | Health, bounded ingestion and queries | FastAPI / Python | Configuration and stores | 1 | Pending |
+| Local runtime | Reproducible services and volumes | Docker Compose | Docker daemon | 1 | Validated |
+| API | Health, bounded ingestion and queries | FastAPI / Python | Configuration and stores | 1 | Validated |
 | Metadata and vector index | Provenance, lifecycle, similarity | PostgreSQL / pgvector | Persistent volume | 1–2 | Pending |
-| Original storage | Immutable source bytes | MinIO | Persistent volume | 1 | Pending |
+| Original storage | Immutable source bytes | MinIO | Persistent volume | 1 | Validated |
 | Document processing | Markdown/PDF extraction, chunks | Python | Source storage | 2 | Pending |
 | Model adapter | Embedding and text/vision inference | Ollama or compatible HTTP API | Configured models | 2–3 | Pending |
 | RAG | Evidence retrieval and cited answers | Python | pgvector and model adapter | 2 | Pending |

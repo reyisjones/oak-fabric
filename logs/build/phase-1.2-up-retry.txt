@@ -1,0 +1,141 @@
+ Image oak-fabric-api Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 534B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 390B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.14.0-slim
+#3 DONE 0.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 94B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 1.96kB done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.14.0-slim@sha256:0aecac02dc3d4c5dbb024b753af084cafe41f5416e02193f1ce345d671ec966e
+#6 resolve docker.io/library/python:3.14.0-slim@sha256:0aecac02dc3d4c5dbb024b753af084cafe41f5416e02193f1ce345d671ec966e 0.0s done
+#6 sha256:0aecac02dc3d4c5dbb024b753af084cafe41f5416e02193f1ce345d671ec966e 10.37kB / 10.37kB done
+#6 sha256:d4c6c639f80b11b7fb0f682bdd93c054f58e748aba354d7fbe92689e04dff2d0 1.75kB / 1.75kB done
+#6 sha256:4c52aa327cbe16a222bffdcf66891296ea2ee7b7f8d09bfe382230a714d596a0 4.97kB / 4.97kB done
+#6 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 0B / 30.14MB 0.1s
+#6 sha256:ff97b433249fa541dddf15b078e27b908592207c632eefd05a467148c8108915 0B / 1.27MB 0.1s
+#6 sha256:55c6c2370ffd920c53bbf447eba1694e5d20c5ffbf8fbbc15a1191eb924938da 0B / 12.08MB 0.1s
+#6 sha256:55c6c2370ffd920c53bbf447eba1694e5d20c5ffbf8fbbc15a1191eb924938da 8.39MB / 12.08MB 0.5s
+#6 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 14.68MB / 30.14MB 0.7s
+#6 sha256:ff97b433249fa541dddf15b078e27b908592207c632eefd05a467148c8108915 1.27MB / 1.27MB 0.5s done
+#6 sha256:55c6c2370ffd920c53bbf447eba1694e5d20c5ffbf8fbbc15a1191eb924938da 12.08MB / 12.08MB 0.5s done
+#6 sha256:be07e1971e2bde777c69ef9be622e6e392814501ac8171c4fbc8d351dc0e7a7c 250B / 250B 0.6s done
+#6 sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 30.14MB / 30.14MB 0.9s done
+#6 extracting sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 0.1s
+#6 extracting sha256:b89cf3ec7a3ed3a58015edd6724125187f0d284147e09b5739b511c74222b2a4 1.0s done
+#6 extracting sha256:ff97b433249fa541dddf15b078e27b908592207c632eefd05a467148c8108915
+#6 extracting sha256:ff97b433249fa541dddf15b078e27b908592207c632eefd05a467148c8108915 0.1s done
+#6 extracting sha256:55c6c2370ffd920c53bbf447eba1694e5d20c5ffbf8fbbc15a1191eb924938da
+#6 extracting sha256:55c6c2370ffd920c53bbf447eba1694e5d20c5ffbf8fbbc15a1191eb924938da 0.6s done
+#6 extracting sha256:be07e1971e2bde777c69ef9be622e6e392814501ac8171c4fbc8d351dc0e7a7c done
+#6 DONE 2.7s
+
+#7 [2/5] WORKDIR /app
+#7 DONE 0.2s
+
+#8 [3/5] COPY requirements.txt .
+#8 DONE 0.0s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt && useradd --uid 10001 --create-home app
+#9 1.124 Collecting annotated-doc==0.0.5 (from -r requirements.txt (line 1))
+#9 1.300   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#9 1.363 Collecting annotated-types==0.8.0 (from -r requirements.txt (line 2))
+#9 1.416   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#9 1.500 Collecting anyio==4.15.1 (from -r requirements.txt (line 3))
+#9 1.552   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#9 1.629 Collecting click==8.5.0 (from -r requirements.txt (line 4))
+#9 1.681   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 1.834 Collecting fastapi==0.141.1 (from -r requirements.txt (line 5))
+#9 1.884   Downloading fastapi-0.141.1-py3-none-any.whl.metadata (27 kB)
+#9 1.958 Collecting h11==0.16.0 (from -r requirements.txt (line 6))
+#9 2.008   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#9 2.075 Collecting idna==3.19 (from -r requirements.txt (line 7))
+#9 2.125   Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+#9 2.315 Collecting pydantic==2.13.5 (from -r requirements.txt (line 8))
+#9 2.365   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+#9 2.946 Collecting pydantic_core==2.46.5 (from -r requirements.txt (line 9))
+#9 2.996   Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.6 kB)
+#9 3.060 Collecting starlette==1.6.0 (from -r requirements.txt (line 10))
+#9 3.109   Downloading starlette-1.6.0-py3-none-any.whl.metadata (6.4 kB)
+#9 3.160 Collecting typing-inspection==0.4.4 (from -r requirements.txt (line 11))
+#9 3.210   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+#9 3.270 Collecting typing_extensions==4.16.0 (from -r requirements.txt (line 12))
+#9 3.321   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#9 3.388 Collecting uvicorn==0.52.4 (from -r requirements.txt (line 13))
+#9 3.440   Downloading uvicorn-0.52.4-py3-none-any.whl.metadata (6.6 kB)
+#9 3.518 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+#9 3.568 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#9 3.621 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#9 3.688 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 3.748 Downloading fastapi-0.141.1-py3-none-any.whl (131 kB)
+#9 3.811 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 3.863 Downloading idna-3.19-py3-none-any.whl (68 kB)
+#9 3.919 Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+#9 4.030 Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.0 MB)
+#9 4.124    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 19.4 MB/s  0:00:00
+#9 4.176 Downloading starlette-1.6.0-py3-none-any.whl (75 kB)
+#9 4.230 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#9 4.282 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 4.335 Downloading uvicorn-0.52.4-py3-none-any.whl (79 kB)
+#9 4.383 Installing collected packages: typing_extensions, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic_core, anyio, starlette, pydantic, fastapi
+#9 5.010
+#9 5.011 Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 fastapi-0.141.1 h11-0.16.0 idna-3.19 pydantic-2.13.5 pydantic_core-2.46.5 starlette-1.6.0 typing-inspection-0.4.4 typing_extensions-4.16.0 uvicorn-0.52.4
+#9 5.011 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 5.246
+#9 5.246 [notice] A new release of pip is available: 25.2 -> 26.2.1
+#9 5.246 [notice] To update, run: pip install --upgrade pip
+#9 DONE 5.4s
+
+#10 [5/5] COPY src ./src
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers 0.1s done
+#11 writing image sha256:c73af53d61de92475ec6c0708e576fbad2943ad235eccc7d4e8e91d9a2890e71 done
+#11 naming to docker.io/library/oak-fabric-api done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image oak-fabric-api Built
+ Network oak-fabric_default Creating
+ Volume oak-fabric_minio_data Creating
+ Volume oak-fabric_postgres_data Creating
+ Volume oak-fabric_postgres_data Creating
+ Network oak-fabric_default Creating
+ Volume oak-fabric_minio_data Creating
+ Volume oak-fabric_postgres_data Created
+ Volume oak-fabric_postgres_data Created
+ Volume oak-fabric_minio_data Created
+ Volume oak-fabric_minio_data Created
+ Network oak-fabric_default Created
+ Network oak-fabric_default Created
+ Container oak-fabric-postgres-1 Creating
+ Container oak-fabric-minio-1 Creating
+ Container oak-fabric-api-1 Creating
+ Container oak-fabric-minio-1 Created
+ Container oak-fabric-api-1 Created
+ Container oak-fabric-postgres-1 Created
+ Container oak-fabric-postgres-1 Starting
+ Container oak-fabric-minio-1 Starting
+ Container oak-fabric-api-1 Starting
+ Container oak-fabric-postgres-1 Started
+ Container oak-fabric-api-1 Started
+ Container oak-fabric-minio-1 Started
+ Container oak-fabric-postgres-1 Waiting
+ Container oak-fabric-minio-1 Waiting
+ Container oak-fabric-api-1 Waiting
+ Container oak-fabric-minio-1 Healthy
+ Container oak-fabric-postgres-1 Healthy
+ Container oak-fabric-api-1 Healthy

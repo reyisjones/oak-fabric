@@ -1,0 +1,106 @@
+ Image oak-fabric-api Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 534B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 390B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.14.0-slim
+#3 DONE 0.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 94B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.14.0-slim@sha256:0aecac02dc3d4c5dbb024b753af084cafe41f5416e02193f1ce345d671ec966e
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 6.95kB done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt .
+#8 DONE 0.0s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt && useradd --uid 10001 --create-home app
+#9 1.186 Collecting annotated-doc==0.0.5 (from -r requirements.txt (line 1))
+#9 1.376   Downloading annotated_doc-0.0.5-py3-none-any.whl.metadata (6.5 kB)
+#9 1.438 Collecting annotated-types==0.8.0 (from -r requirements.txt (line 2))
+#9 1.491   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#9 1.580 Collecting anyio==4.15.1 (from -r requirements.txt (line 3))
+#9 1.631   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#9 1.707 Collecting click==8.5.0 (from -r requirements.txt (line 4))
+#9 1.759   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 1.898 Collecting fastapi==0.141.1 (from -r requirements.txt (line 5))
+#9 1.949   Downloading fastapi-0.141.1-py3-none-any.whl.metadata (27 kB)
+#9 2.024 Collecting h11==0.16.0 (from -r requirements.txt (line 6))
+#9 2.077   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#9 2.144 Collecting idna==3.19 (from -r requirements.txt (line 7))
+#9 2.197   Downloading idna-3.19-py3-none-any.whl.metadata (9.2 kB)
+#9 2.385 Collecting pydantic==2.13.5 (from -r requirements.txt (line 8))
+#9 2.435   Downloading pydantic-2.13.5-py3-none-any.whl.metadata (110 kB)
+#9 2.998 Collecting pydantic_core==2.46.5 (from -r requirements.txt (line 9))
+#9 3.050   Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl.metadata (6.6 kB)
+#9 3.111 Collecting starlette==1.6.0 (from -r requirements.txt (line 10))
+#9 3.160   Downloading starlette-1.6.0-py3-none-any.whl.metadata (6.4 kB)
+#9 3.213 Collecting typing-inspection==0.4.4 (from -r requirements.txt (line 11))
+#9 3.264   Downloading typing_inspection-0.4.4-py3-none-any.whl.metadata (2.6 kB)
+#9 3.324 Collecting typing_extensions==4.16.0 (from -r requirements.txt (line 12))
+#9 3.375   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#9 3.443 Collecting uvicorn==0.52.4 (from -r requirements.txt (line 13))
+#9 3.499   Downloading uvicorn-0.52.4-py3-none-any.whl.metadata (6.6 kB)
+#9 3.565 Collecting pypdf==6.18.0 (from -r requirements.txt (line 14))
+#9 3.617   Downloading pypdf-6.18.0-py3-none-any.whl.metadata (7.5 kB)
+#9 3.713 Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+#9 3.762 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#9 3.813 Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+#9 3.884 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 3.944 Downloading fastapi-0.141.1-py3-none-any.whl (131 kB)
+#9 4.004 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 4.059 Downloading idna-3.19-py3-none-any.whl (68 kB)
+#9 4.114 Downloading pydantic-2.13.5-py3-none-any.whl (472 kB)
+#9 4.242 Downloading pydantic_core-2.46.5-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (2.0 MB)
+#9 4.339    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 19.0 MB/s  0:00:00
+#9 4.392 Downloading starlette-1.6.0-py3-none-any.whl (75 kB)
+#9 4.445 Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+#9 4.500 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 4.550 Downloading uvicorn-0.52.4-py3-none-any.whl (79 kB)
+#9 4.600 Downloading pypdf-6.18.0-py3-none-any.whl (393 kB)
+#9 4.629 Installing collected packages: typing_extensions, pypdf, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic_core, anyio, starlette, pydantic, fastapi
+#9 5.496
+#9 5.497 Successfully installed annotated-doc-0.0.5 annotated-types-0.8.0 anyio-4.15.1 click-8.5.0 fastapi-0.141.1 h11-0.16.0 idna-3.19 pydantic-2.13.5 pydantic_core-2.46.5 pypdf-6.18.0 starlette-1.6.0 typing-inspection-0.4.4 typing_extensions-4.16.0 uvicorn-0.52.4
+#9 5.497 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 5.728
+#9 5.728 [notice] A new release of pip is available: 25.2 -> 26.2.1
+#9 5.728 [notice] To update, run: pip install --upgrade pip
+#9 DONE 5.9s
+
+#10 [5/5] COPY src ./src
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers 0.1s done
+#11 writing image sha256:beac82444c161e92b9152031d591309a5eb02b2c7e6f01ad672bbda77d72c7ac done
+#11 naming to docker.io/library/oak-fabric-api done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image oak-fabric-api Built
+ Container oak-fabric-postgres-1 Running
+ Container oak-fabric-minio-1 Running
+ Container oak-fabric-api-1 Recreate
+ Container oak-fabric-api-1 Recreated
+ Container oak-fabric-api-1 Starting
+ Container oak-fabric-api-1 Started
+ Container oak-fabric-postgres-1 Waiting
+ Container oak-fabric-minio-1 Waiting
+ Container oak-fabric-api-1 Waiting
+ Container oak-fabric-minio-1 Healthy
+ Container oak-fabric-postgres-1 Healthy
+ Container oak-fabric-api-1 Healthy

@@ -12,3 +12,15 @@ Read [vision.md](../architecture/vision.md) and [ADR-001](../decisions/ADR-001-i
 The concept: object storage retains original evidence, PostgreSQL tracks its identity and status, and pgvector retrieves similar evidence. Keeping these roles explicit makes answers inspectable and permits later graph enrichment.
 
 Acceptance: the learner can inspect the flow and distinguish generated drafts from approved knowledge. Inspection has not yet occurred; do not mark understanding or approval complete. After feedback, review gaps, record corrections, and proceed to milestone 1.1.
+
+## Milestone 1.1 execution
+
+The user authorized continuation after the initial checkpoint. Assistant implemented the API foundation; nine tests and a real local HTTP call passed. Learner understanding has not been assessed. Inspection assignment: run `make test` and `make run`, then request `/health`; explain why a healthy process does not prove database readiness. No learner mistakes are assumed.
+
+## Milestones 1.2 and 2.1
+
+Assistant validated three containers and storage persistence after restart, then implemented Markdown/PDF extraction. Twenty-two cumulative tests pass. Learner inspection remains unassessed. Assignment: inspect the two-page PDF test and explain why retaining page numbers matters for a cited answer; compare a content checksum with a source path. Revisit single-node storage limitations and scanned-PDF/OCR boundaries.
+
+## Chunking inspection
+
+Assistant implemented deterministic character windows with overlap and source/page metadata. Full embedding milestone remains pending model setup. Assignment: inspect `test_chunk_overlap_coverage_and_stable_identity` and explain how overlap retains context and why source references distinguish identical content at different paths. Audit found a heading-regex error for C#; a regression test reproduced it and the focused fix passed. Learner understanding is not inferred from assistant test results.

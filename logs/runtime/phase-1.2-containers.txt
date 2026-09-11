@@ -1,0 +1,105 @@
+api-1       | INFO:     Started server process [1]
+api-1       | INFO:     Waiting for application startup.
+api-1       | INFO:     Application startup complete.
+api-1       | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+minio-1     | INFO: Formatting 1st pool, 1 set(s), 1 drives per set.
+minio-1     | INFO: WARNING: Host local has more than 0 drives of set. A host failure will result in data becoming unavailable.
+api-1       | INFO:     127.0.0.1:38410 - "GET /health HTTP/1.1" 200 OK
+api-1       | INFO:     127.0.0.1:58548 - "GET /health HTTP/1.1" 200 OK
+api-1       | INFO:     127.0.0.1:57510 - "GET /health HTTP/1.1" 200 OK
+api-1       | INFO:     127.0.0.1:47352 - "GET /health HTTP/1.1" 200 OK
+postgres-1  | The files belonging to this database system will be owned by user "postgres".
+postgres-1  | This user must also own the server process.
+postgres-1  |
+postgres-1  | The database cluster will be initialized with locale "en_US.utf8".
+postgres-1  | The default database encoding has accordingly been set to "UTF8".
+postgres-1  | The default text search configuration will be set to "english".
+postgres-1  |
+postgres-1  | Data page checksums are disabled.
+postgres-1  |
+postgres-1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+postgres-1  | creating subdirectories ... ok
+postgres-1  | selecting dynamic shared memory implementation ... posix
+api-1       | INFO:     127.0.0.1:60536 - "GET /health HTTP/1.1" 200 OK
+api-1       | INFO:     172.18.0.1:61864 - "GET /health HTTP/1.1" 200 OK
+postgres-1  | selecting default "max_connections" ... 100
+minio-1     | MinIO Object Storage Server
+minio-1     | Copyright: 2015-2026 MinIO, Inc.
+minio-1     | License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+minio-1     | Version: RELEASE.2025-09-07T16-13-09Z (go1.24.6 linux/arm64)
+minio-1     |
+postgres-1  | selecting default "shared_buffers" ... 128MB
+postgres-1  | selecting default time zone ... Etc/UTC
+postgres-1  | creating configuration files ... ok
+minio-1     | API: http://172.18.0.4:9000  http://127.0.0.1:9000
+minio-1     | WebUI: http://172.18.0.4:9001 http://127.0.0.1:9001
+minio-1     |
+minio-1     | Docs: https://docs.min.io
+minio-1     | INFO: Exiting on signal: TERMINATED
+minio-1     | MinIO Object Storage Server
+minio-1     | Copyright: 2015-2026 MinIO, Inc.
+minio-1     | License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+minio-1     | Version: RELEASE.2025-09-07T16-13-09Z (go1.24.6 linux/arm64)
+minio-1     |
+minio-1     | API: http://172.18.0.3:9000  http://127.0.0.1:9000
+minio-1     | WebUI: http://172.18.0.3:9001 http://127.0.0.1:9001
+minio-1     |
+minio-1     | Docs: https://docs.min.io
+postgres-1  | running bootstrap script ... ok
+postgres-1  | performing post-bootstrap initialization ... ok
+postgres-1  | initdb: warning: enabling "trust" authentication for local connections
+postgres-1  | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+postgres-1  | syncing data to disk ... ok
+postgres-1  |
+postgres-1  |
+postgres-1  | Success. You can now start the database server using:
+postgres-1  |
+postgres-1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+postgres-1  |
+postgres-1  | waiting for server to start....2026-09-10 21:09:27.091 UTC [47] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1  | 2026-09-10 21:09:27.092 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-09-10 21:09:27.095 UTC [50] LOG:  database system was shut down at 2026-09-10 21:09:26 UTC
+postgres-1  | 2026-09-10 21:09:27.099 UTC [47] LOG:  database system is ready to accept connections
+postgres-1  |  done
+postgres-1  | server started
+postgres-1  | CREATE DATABASE
+postgres-1  |
+postgres-1  |
+postgres-1  | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/001-vector.sql
+postgres-1  | CREATE EXTENSION
+postgres-1  |
+postgres-1  |
+postgres-1  | waiting for server to shut down...2026-09-10 21:09:27.284 UTC [47] LOG:  received fast shutdown request
+postgres-1  | .2026-09-10 21:09:27.285 UTC [47] LOG:  aborting any active transactions
+postgres-1  | 2026-09-10 21:09:27.286 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+postgres-1  | 2026-09-10 21:09:27.287 UTC [48] LOG:  shutting down
+postgres-1  | 2026-09-10 21:09:27.287 UTC [48] LOG:  checkpoint starting: shutdown immediate
+postgres-1  | 2026-09-10 21:09:27.322 UTC [48] LOG:  checkpoint complete: wrote 945 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.011 s, sync=0.021 s, total=0.036 s; sync files=301, longest=0.007 s, average=0.001 s; distance=4618 kB, estimate=4618 kB; lsn=0/1969AD8, redo lsn=0/1969AD8
+postgres-1  | 2026-09-10 21:09:27.326 UTC [47] LOG:  database system is shut down
+postgres-1  |  done
+postgres-1  | server stopped
+postgres-1  |
+postgres-1  | PostgreSQL init process complete; ready for start up.
+postgres-1  |
+postgres-1  | 2026-09-10 21:09:27.398 UTC [1] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1  | 2026-09-10 21:09:27.398 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2026-09-10 21:09:27.398 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2026-09-10 21:09:27.400 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-09-10 21:09:27.403 UTC [65] LOG:  database system was shut down at 2026-09-10 21:09:27 UTC
+postgres-1  | 2026-09-10 21:09:27.406 UTC [1] LOG:  database system is ready to accept connections
+postgres-1  | 2026-09-10 21:09:57.914 UTC [1] LOG:  received fast shutdown request
+postgres-1  | 2026-09-10 21:09:57.916 UTC [1] LOG:  aborting any active transactions
+postgres-1  | 2026-09-10 21:09:57.919 UTC [1] LOG:  background worker "logical replication launcher" (PID 68) exited with exit code 1
+postgres-1  | 2026-09-10 21:09:57.919 UTC [63] LOG:  shutting down
+postgres-1  | 2026-09-10 21:09:57.920 UTC [63] LOG:  checkpoint starting: shutdown immediate
+postgres-1  | 2026-09-10 21:09:57.938 UTC [63] LOG:  checkpoint complete: wrote 93 buffers (0.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.011 s, total=0.020 s; sync files=48, longest=0.006 s, average=0.001 s; distance=454 kB, estimate=454 kB; lsn=0/19DB340, redo lsn=0/19DB340
+postgres-1  | 2026-09-10 21:09:57.942 UTC [1] LOG:  database system is shut down
+postgres-1  |
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  |
+postgres-1  | 2026-09-10 21:09:58.193 UTC [1] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+postgres-1  | 2026-09-10 21:09:58.194 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres-1  | 2026-09-10 21:09:58.194 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres-1  | 2026-09-10 21:09:58.195 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres-1  | 2026-09-10 21:09:58.198 UTC [28] LOG:  database system was shut down at 2026-09-10 21:09:57 UTC
+postgres-1  | 2026-09-10 21:09:58.201 UTC [1] LOG:  database system is ready to accept connections

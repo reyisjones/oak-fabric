@@ -1,6 +1,6 @@
 # Sequential roadmap
 
-Complete and validate each milestone before the next. All implementation milestones are pending. Conditional additions require a documented use case; they are not prerequisites for the core platform.
+Complete and validate each milestone before the next. Milestone 1.1 is validated (nine tests and a live health response); milestone 1.2 is validated (healthy containers and persistent storage round-trips). Milestone 2.1 is validated (22 cumulative tests). Milestone 2.2 is next. Conditional additions require a documented use case; they are not prerequisites for the core platform.
 
 | ID | Deliverable | Required completion evidence |
 | --- | --- | --- |
@@ -26,3 +26,5 @@ Complete and validate each milestone before the next. All implementation milesto
 For every issue: capture error → identify root cause → document → apply one focused fix → rerun affected validation → record outcome. A failed required test blocks its milestone. Mocks alone do not prove service/model integration.
 
 The Phase 1 Neo4j ordering conflict is resolved explicitly in [ADR-001](decisions/ADR-001-incremental-foundation.md). Optional Azure deployment is outside the initial core scope.
+
+Current update: 2.1 is complete. The chunking portion of 2.2 passes tests; embeddings and persistent document ingestion are pending model setup. A chunking test is not evidence that 2.2 is complete.

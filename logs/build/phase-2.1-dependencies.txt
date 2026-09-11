@@ -1,0 +1,8 @@
+Collecting pypdf
+  Downloading pypdf-6.18.0-py3-none-any.whl.metadata (7.5 kB)
+Downloading pypdf-6.18.0-py3-none-any.whl (393 kB)
+Installing collected packages: pypdf
+Successfully installed pypdf-6.18.0
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: /Users/reyisnieves/Dev/oak-fabric/.venv/bin/python -m pip install --upgrade pip

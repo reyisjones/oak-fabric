@@ -1,0 +1,4 @@
+NAME                    IMAGE                                      COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+oak-fabric-api-1        oak-fabric-api                             "python -m uvicorn s…"   api        59 seconds ago   Up 59 seconds (healthy)   127.0.0.1:8000->8000/tcp
+oak-fabric-minio-1      minio/minio:RELEASE.2025-09-07T16-13-09Z   "/usr/bin/docker-ent…"   minio      59 seconds ago   Up 27 seconds (healthy)   127.0.0.1:9001->9001/tcp
+oak-fabric-postgres-1   pgvector/pgvector:0.8.6-pg17               "docker-entrypoint.s…"   postgres   59 seconds ago   Up 27 seconds (healthy)   5432/tcp

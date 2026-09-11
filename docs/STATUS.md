@@ -4,47 +4,49 @@ Updated: 2026-09-10.
 
 | Field | Latest state |
 | --- | --- |
-| Current Phase | Initial assessment and architecture checkpoint |
-| Last Completed Task | Milestone 0 artifacts and documentation validation |
-| Current Task | Await initial architecture/assignment inspection required by directive sections 28 and final instruction |
-| Pending Tasks | Milestones 1.1–11; conditional tools only when justified |
-| Open Issues | ENV-001 Docker daemon unreachable; no source image supplied |
-| Recent Fixes | Diagnostic retry distinguished sandbox denial from unavailable Docker daemon |
-| Architecture Decisions | ADR-001: minimal Compose foundation; Neo4j after validated image/RAG slice |
-| Next Recommended Action | Inspect first assignment, then implement and validate milestone 1.1 |
+| Current Phase | Phase 2 — Document RAG |
+| Last Completed Task | Milestone 2.1: Markdown/PDF extraction with source/page provenance |
+| Current Task | Milestone 2.2: chunking validated; model/vector ingestion integration pending |
+| Pending Tasks | Complete 2.2; milestones 2.3–11, with conditional tools justified individually |
+| Open Issues | Model setup choice; DEPS-001 test deprecations; OPS-001 local storage limitations |
+| Recent Fixes | Docker startup, credential-helper workaround, package networking, C# heading preservation |
+| Architecture Decisions | ADR-001 through ADR-004; synchronous processing and explicit provenance |
+| Next Recommended Action | Select local Ollama or provide an existing compatible endpoint/model configuration |
 
 ## Completed
 
-Repository inspection; empty image inventory; target architecture; component map; roadmap; learning assignment; issue/log structure; documentation validation. Evidence: [initial-review.txt](../logs/validation/initial-review.txt).
+Initial planning; Git master initialization and first push; milestone 1.1 API and configuration; milestone 1.2 healthy Compose containers and persistent PostgreSQL vector/MinIO round-trips; milestone 2.1 Markdown/PDF extraction. Chunking portion of 2.2 is tested, but the milestone is not complete.
+
+Evidence: [unit tests](../logs/validation/current-tests.txt), [storage write](../logs/validation/phase-1.2-storage-write.txt), [post-restart read](../logs/validation/phase-1.2-storage-read.txt), [container status](../logs/runtime/phase-1.2-services.txt), [HTTP response](../logs/validation/phase-1.2-http.json).
 
 ## In Progress
 
-First-execution inspection checkpoint. No implementation is in progress.
+Milestone 2.2. Deterministic overlapping chunks preserve the directive's required metadata, PDF page numbers, and distinct source references. Embeddings, index ingestion, and real-model validation remain unimplemented.
 
 ## Pending
 
-Application, containers, models, ingestion, retrieval, image analysis, review lifecycle, graph, agents, encyclopedia, POCs, observability, and portable deployment. See [roadmap](ROADMAP.md).
+Model adapter, persistent document ingestion, retrieval/cited RAG, image analysis, review lifecycle, graph, controlled agents, encyclopedia, POCs, observability, and portable deployment. See [roadmap](ROADMAP.md).
 
 ## Blocked
 
-Container verification cannot proceed until Docker daemon is available. Phase 1 is held at the directive's explicit first-execution checkpoint. Image reconstruction awaits a source image in Phase 3.
+Model setup question is pending: local Ollama downloads or an existing OpenAI-compatible endpoint with model names. No Ollama executable was found and no model credentials/endpoint were provided. Real embedding validation cannot run yet. Image analysis will also require a supplied source image in Phase 3.
 
 ## Issues Found
 
-[ENV-001](../logs/issues/ISSUES.md): Docker daemon unavailable. Workspace is not a Git repository; version-control initialization remains a foundation task.
+[Issue records](../logs/issues/ISSUES.md). Dependency warnings are visible and nonblocking. Docker Desktop's credential helper stalls; public image downloads/builds succeeded using temporary isolated client configuration without editing user settings.
 
 ## Fixes Applied
 
-No code fixes required or applied. Read-only Docker diagnostic rerun completed; runtime issue remains open.
+Started Docker Desktop; retried package installation with authorized networking; passed isolated configuration through build subprocess environment; corrected Markdown closing-hash handling and validated the regression.
 
 ## Technical Decisions
 
-See [ADR-001](decisions/ADR-001-incremental-foundation.md). Source preservation, explicit uncertainty, reviewed publication, and separate graph/vector retrieval are design requirements.
+[ADR-001](decisions/ADR-001-incremental-foundation.md), [ADR-002](decisions/ADR-002-api-foundation.md), [ADR-003](decisions/ADR-003-compose-storage.md), [ADR-004](decisions/ADR-004-document-extraction.md). Character-based chunk limits are simple and deterministic; model token limits must be checked by the eventual adapter.
 
 ## Known limitations and technical debt
 
-No running system, container validation, source fixture, or model evaluation yet. Exact dependency versions and model resource requirements are unresolved. No implementation debt exists yet; proposed architecture must be revisited against real workload evidence.
+No upload/query endpoints beyond health, model integration, authentication, or production TLS. PDFs have no OCR/table reconstruction; hostile PDF processing needs resource isolation before public exposure. Storage is single-node with administrative bootstrap credentials; least-privilege application access remains pending before ingestion. No source image supplied. Two upstream test deprecations remain. Container image versions are tagged, not digest-pinned.
 
 ## Next Task
 
-Milestone 1.1 after initial inspection: implement a small typed FastAPI health endpoint, configuration, and meaningful tests. Resolve Docker availability before milestone 1.2.
+Configure the selected model provider, then implement embeddings and idempotent document/vector ingestion. Validate a real model round-trip before advancing to 2.3. The learning checkpoint is authorized to continue; no repeated architecture approval is required.

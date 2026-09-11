@@ -1,0 +1,1 @@
+PASS: read PostgreSQL vector and MinIO object round-trips for 28634697-51b4-4c96-947b-6444fa62129c

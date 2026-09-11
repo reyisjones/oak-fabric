@@ -1,0 +1,4 @@
+ Container oak-fabric-minio-1 Restarting
+ Container oak-fabric-postgres-1 Restarting
+ Container oak-fabric-minio-1 Started
+ Container oak-fabric-postgres-1 Started

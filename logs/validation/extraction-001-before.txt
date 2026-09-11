@@ -1,0 +1,16 @@
+.............F                                                           [100%]
+=================================== FAILURES ===================================
+_______________ test_markdown_preserves_hash_in_technology_name ________________
+
+    def test_markdown_preserves_hash_in_technology_name():
+        doc = extract_document('source.md', b'# C#\nLanguage notes\n## Details ##\nBody')
+>       assert doc.title == 'C#'
+E       AssertionError: assert 'C' == 'C#'
+E
+E         - C#
+E         + C
+
+tests/unit/test_documents.py:89: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_documents.py::test_markdown_preserves_hash_in_technology_name
+1 failed, 13 passed in 0.09s
