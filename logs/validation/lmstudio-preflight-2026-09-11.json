@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-11T08:14:39.824227+00:00",
+  "base_url": "http://localhost:1234/v1",
+  "checks": [
+    {
+      "check": "models",
+      "http_status": 200,
+      "models": [
+        "google/gemma-4-e4b",
+        "qwen/qwen3.5-9b",
+        "text-embedding-nomic-embed-text-v1.5"
+      ],
+      "result": "PASS"
+    },
+    {
+      "check": "embeddings",
+      "http_status": 200,
+      "model": "text-embedding-nomic-embed-text-v1.5",
+      "count": 2,
+      "dimensions": 768,
+      "finite_nonzero": true,
+      "result": "PASS"
+    },
+    {
+      "check": "generation",
+      "http_status": 200,
+      "model": "google/gemma-4-e4b",
+      "response": "API_OK",
+      "finish_reason": "stop",
+      "result": "PASS"
+    }
+  ]
+}

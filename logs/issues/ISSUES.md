@@ -77,3 +77,14 @@ BUILD-002 resolution: public image pull, inherited-config build, and Compose hea
 - Fix: Strip closing hash sequences only when preceded by whitespace.
 - Validation: Reproduced with a failing regression; all 14 extraction tests pass after the focused fix. See [before](../validation/extraction-001-before.txt) and [after](../validation/extraction-001-after.txt).
 - Status: Resolved.
+
+## ENV-002
+
+- ID: ENV-002
+- Date: 2026-09-11
+- Component: LM Studio connectivity validation
+- Symptom: Sandboxed curl to localhost:1234/v1/models exited 7: could not connect to server.
+- Root Cause: Sandbox networking prevented local API access; the server was running.
+- Fix: Repeated the same read-only request outside the sandbox.
+- Validation: HTTP 200 for model listing, two 768-dimensional embeddings, and generation returning API_OK. The Compose API container also reaches host.docker.internal:1234. See [preflight](../validation/lmstudio-preflight-2026-09-11.json).
+- Status: Resolved.

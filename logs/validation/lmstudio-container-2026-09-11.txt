@@ -1,0 +1,5 @@
+Date: 2026-09-11
+Check: GET http://host.docker.internal:1234/v1/models from Compose api container using urllib, timeout 10 seconds.
+Result: PASS, HTTP 200.
+Models: text-embedding-nomic-embed-text-v1.5, google/gemma-4-e4b, qwen/qwen3.5-9b.
+The host uses localhost:1234; containers must use host.docker.internal:1234.

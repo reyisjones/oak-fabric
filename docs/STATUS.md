@@ -1,6 +1,6 @@
 # Project status
 
-Updated: 2026-09-10.
+Updated: 2026-09-11.
 
 | Field | Latest state |
 | --- | --- |
@@ -8,10 +8,10 @@ Updated: 2026-09-10.
 | Last Completed Task | Milestone 2.1: Markdown/PDF extraction with source/page provenance |
 | Current Task | Milestone 2.2: chunking validated; model/vector ingestion integration pending |
 | Pending Tasks | Complete 2.2; milestones 2.3–11, with conditional tools justified individually |
-| Open Issues | Model setup choice; DEPS-001 test deprecations; OPS-001 local storage limitations |
+| Open Issues | DEPS-001 test deprecations; OPS-001 local storage limitations |
 | Recent Fixes | Docker startup, credential-helper workaround, package networking, C# heading preservation |
 | Architecture Decisions | ADR-001 through ADR-004; synchronous processing and explicit provenance |
-| Next Recommended Action | Select local Ollama or provide an existing compatible endpoint/model configuration |
+| Next Recommended Action | Integrate LM Studio embeddings (768 dimensions), then validate persistent vector ingestion |
 
 ## Completed
 
@@ -29,7 +29,7 @@ Model adapter, persistent document ingestion, retrieval/cited RAG, image analysi
 
 ## Blocked
 
-Model setup question is pending: local Ollama downloads or an existing OpenAI-compatible endpoint with model names. No Ollama executable was found and no model credentials/endpoint were provided. Real embedding validation cannot run yet. Image analysis will also require a supplied source image in Phase 3.
+User selected LM Studio at http://localhost:1234/v1. Model listing and a real two-input embedding request pass; embeddings contain 768 finite values. Docker API container also reaches http://host.docker.internal:1234/v1. Generation with google/gemma-4-e4b returned API_OK with a normal stop. The model prerequisite is validated; no current model-provider blocker. Image analysis will also require a supplied source image in Phase 3.
 
 ## Issues Found
 
@@ -49,4 +49,6 @@ No upload/query endpoints beyond health, model integration, authentication, or p
 
 ## Next Task
 
-Configure the selected model provider, then implement embeddings and idempotent document/vector ingestion. Validate a real model round-trip before advancing to 2.3. The learning checkpoint is authorized to continue; no repeated architecture approval is required.
+Use the validated LM Studio provider to implement embeddings and idempotent document/vector ingestion. Validate a real model round-trip before advancing to 2.3. The learning checkpoint is authorized to continue; no repeated architecture approval is required.
+
+LM Studio preflight evidence: [host API, embeddings, generation](../logs/validation/lmstudio-preflight-2026-09-11.json) and [container connectivity](../logs/validation/lmstudio-container-2026-09-11.txt). This validates the provider, not end-to-end RAG.
