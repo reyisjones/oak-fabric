@@ -1,0 +1,5 @@
+Date: 2026-09-12
+Request: GET http://localhost:1234/api/v1/models
+Result: HTTP success; advertised vision=true for google/gemma-4-e4b and qwen/qwen3.5-9b.
+Selected for synthetic smoke test: google/gemma-4-e4b.
+Actual image request result is recorded separately in phase-3.1-vision-smoke.txt.

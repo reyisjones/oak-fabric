@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "review",
+  "created_at": "2026-09-12T22:12:41.056950+00:00",
+  "source": "tests/fixtures/synthetic-architecture.png",
+  "preserved_source": "images/processed/5f99f1818911edf88f8a127881817fa63a1d7115cead23c6d4bd4c7ce1a51243.png",
+  "image": {
+    "sha256": "5f99f1818911edf88f8a127881817fa63a1d7115cead23c6d4bd4c7ce1a51243",
+    "media_type": "image/png",
+    "extension": "png",
+    "width": 640,
+    "height": 280
+  },
+  "model": "google/gemma-4-e4b",
+  "analysis": {
+    "title": "Synthetic vision test",
+    "components": [
+      {
+        "id": "client",
+        "label": "Client",
+        "technology": null,
+        "evidence": "Box labeled Client"
+      },
+      {
+        "id": "api",
+        "label": "API",
+        "technology": null,
+        "evidence": "Box labeled API"
+      }
+    ],
+    "connections": [
+      {
+        "source": "client",
+        "target": "api",
+        "label": "request",
+        "evidence": "Arrow from Client to API labeled request"
+      }
+    ],
+    "boundaries": [],
+    "uncertainties": [],
+    "inferences": [
+      "The diagram illustrates a simple client-server interaction model where the Client sends a request to the API."
+    ]
+  },
+  "validation": {
+    "structure": "passed",
+    "visual_accuracy": "not_reviewed"
+  }
+}

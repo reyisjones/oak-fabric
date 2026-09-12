@@ -127,3 +127,29 @@ RAG-002 resolution: passage preservation passed the stricter live evaluation for
 - Fix: Convert the root-type AttributeError into the existing sanitized ModelError boundary.
 - Validation: Three regression failures reproduced in [before](../validation/model-001-before.txt); all 14 embedding tests pass in [after](../validation/model-001-after.txt).
 - Status: Resolved.
+
+## BUILD-003
+
+- ID: BUILD-003
+- Date: 2026-09-12
+- Component: Temporary Docker client configuration
+- Symptom: Container build exited 125 with unknown flag --build.
+- Root Cause: The prior temporary Docker configuration no longer existed, so the isolated client could not discover the Compose plugin.
+- Fix: Recreated the temporary configuration with the installed Docker Desktop plugin directory; user Docker settings remain unchanged.
+- Validation: Original error in [build log](../build/phase-3.1-container.txt); retry pending.
+- Status: Fix applied, validation pending.
+
+BUILD-003 configuration fix confirmed: Compose is discovered again; retry reached daemon connection and revealed a separate stopped-runtime issue. Status: resolved for plugin discovery.
+
+## ENV-003
+
+- ID: ENV-003
+- Date: 2026-09-12
+- Component: Docker Desktop runtime
+- Symptom: Build retry cannot connect to the local Docker daemon.
+- Root Cause: Selected Docker Desktop daemon is unavailable; application startup is being attempted.
+- Fix: Start Docker Desktop, then retry the same container build.
+- Validation: [Connection error](../build/phase-3.1-container-retry.txt); startup and build verification pending.
+- Status: In progress.
+
+ENV-003 resolution: Docker Desktop startup completed successfully and the rebuilt API, PostgreSQL and MinIO containers all passed health checks. Evidence: [startup](../runtime/phase-3.1-docker-start.txt) and [final build](../build/phase-3.1-container-final.txt). Status: resolved.

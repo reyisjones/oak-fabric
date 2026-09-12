@@ -1,0 +1,13 @@
+usage: python -m src.ingestion.images [-h] [--model MODEL]
+                                      [--base-url BASE_URL]
+                                      source
+
+Analyze a local image into a preserved source and reviewable JSON draft.
+
+positional arguments:
+  source
+
+options:
+  -h, --help           show this help message and exit
+  --model MODEL
+  --base-url BASE_URL

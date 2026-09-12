@@ -2,7 +2,7 @@
 
 A local architecture knowledge laboratory: preserve sources, create reviewable knowledge, and retrieve cited evidence.
 
-Implemented: Docker foundation, authenticated Markdown/PDF ingestion, original-byte preservation, 768-dimensional Nomic embeddings, draft review/approval, vector search, and source-quoted RAG through LM Studio. See [project status](docs/STATUS.md) for validation gates and pending work. Image analysis, Neo4j, GraphRAG, and POC generation are not implemented yet.
+Implemented: Docker foundation, authenticated Markdown/PDF ingestion, original-byte preservation, 768-dimensional Nomic embeddings, draft review/approval, vector search, and source-quoted RAG through LM Studio. See [project status](docs/STATUS.md) for validation gates and pending work. Image analysis is available as a local draft CLI, with real-diagram acceptance pending. Neo4j, GraphRAG, and POC generation are not implemented yet.
 
 ## Setup
 
@@ -50,3 +50,15 @@ curl --fail -H "Authorization: Bearer $FABRIC_API_KEY" \
 Evidence lives under [logs](logs/build/README.md), with [issue records](logs/issues/ISSUES.md), [current architecture](docs/architecture/current.md), [roadmap](docs/ROADMAP.md), and [learning assignments](docs/learning/progress.md).
 
 This is a single-machine authenticated lab. PDF OCR, public-facing resource isolation/TLS, model migrations, and broader answer-quality evaluation remain pending. See architecture ADRs for design tradeoffs. Docker Desktop credential-helper failures observed during development and the temporary configuration workaround are recorded in the issue log; user Docker settings were not changed.
+
+## Image-analysis draft workflow (milestone 3.1 in progress)
+
+Run locally with LM Studio available:
+
+```sh
+.venv/bin/python -m src.ingestion.images images/incoming/example.png
+```
+
+The CLI validates the image, copies its exact bytes to `images/processed/<sha256>.<extension>`, and creates a new JSON review draft under `documents/generated/image-analysis/`. Optional `--model` and `--base-url` select the vision model and endpoint. Incoming files and previous drafts are preserved. Analysis does not publish knowledge or add embeddings.
+
+Supported input: single-frame PNG, JPEG or WebP, at most 10 MiB and 16 million pixels. Observations and inferences are separate; visual accuracy requires review. A synthetic fixture smoke test passes, but acceptance on a real diagram remains pending. See [ADR-007](docs/decisions/ADR-007-image-observation-drafts.md).

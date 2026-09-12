@@ -1,6 +1,6 @@
 # Current implementation
 
-Updated: 2026-09-11. The [vision](vision.md) describes future capabilities; this document describes implemented behavior.
+Updated: 2026-09-12. The [vision](vision.md) describes future capabilities; this document describes implemented behavior.
 
 ```mermaid
 flowchart LR
@@ -38,8 +38,12 @@ The API uses oak_app database credentials and a MinIO user restricted to source-
 
 ## Validation and limits
 
-Foundation container startup/persistence and real document ingestion are validated. Retrieval and RAG passed the initial three-case live evaluation, with evidence in [STATUS](../STATUS.md). The first answer format returns exact quotations, not free-form summaries. No graph, image ingestion, OCR, generated encyclopedia, or POC execution exists yet.
+Foundation container startup/persistence and real document ingestion are validated. Retrieval and RAG passed the initial three-case live evaluation, with evidence in [STATUS](../STATUS.md). The first answer format returns exact quotations, not free-form summaries. No graph, HTTP image ingestion, OCR, generated encyclopedia, or POC execution exists yet.
 
 Single-host HTTP and bootstrap credentials are for this local lab. Hostile PDF uploads need stronger process limits before external exposure. Embedding responses must match the configured model and 768-dimensional index. Switching models requires a separate index migration. Tags do not constitute immutable image digests.
 
 See [ADR-005](../decisions/ADR-005-local-model-ingestion.md) and [ADR-006](../decisions/ADR-006-cited-extractive-rag.md).
+
+## Image analyzer under milestone 3.1
+
+The local CLI in src/ingestion/images.py preserves source bytes and writes a new review JSON draft. src/extraction/images.py validates decoded input and calls the existing LM Studio client with image bytes and an explicit schema. src/extraction/architecture.py validates component/connection/boundary references and separates inference from proposed observations. No data is published to RAG from these drafts. A synthetic vision smoke test passes; real-diagram reconstruction remains unvalidated. See [ADR-007](../decisions/ADR-007-image-observation-drafts.md).

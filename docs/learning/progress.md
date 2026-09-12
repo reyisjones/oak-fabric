@@ -9,7 +9,7 @@ Updated: 2026-09-11. The user authorized autonomous continuation. Implementation
 | Extraction | Validated | Markdown/PDF extraction and provenance | Unassessed | Why preserve PDF page numbers? | C# heading bug fixed with regression test | OCR and hostile-PDF boundaries | Inspect test_pdf_page_provenance |
 | Chunking and embeddings | Validated | Stable chunks, Nomic vectors, metadata transaction and deduplication | Unassessed | Why must query/document prefixes differ? | No partial rows in injected failure tests | Content identity versus source revision identity | Repeat fixture ingestion and compare IDs |
 | RAG | Validated on initial three-case corpus | Approved-source search and exact cited passages | Unassessed | Does source support imply a complete answer? | Unsupported JSON mode fixed; short quote omitted nearby pgvector fact, fixed by passage preservation | Faithfulness, relevance and completeness are distinct | Inspect expected_phrases and live responses |
-| Image analysis | Pending source image | None | Unassessed | Which real diagram should become the first entry? | None assessed | Extracted facts versus inferred relationships | Supply one source architecture image for the next milestone |
+| Image analysis | CLI and synthetic smoke tested; real image pending | Decoder, schema and review-draft CLI | Unassessed | Which real diagram should become the first entry? | None assessed | Extracted facts versus inferred relationships | Supply one source architecture image for the next milestone |
 
 ## Concepts in this milestone
 
@@ -18,3 +18,7 @@ An embedding maps text to a vector; Nomic requires different prefixes for docume
 Review is explicit: imported documents are drafts, and only approved revisions are searched. RAG asks a model to choose evidence, then checks that its quotation exists in the cited chunk. Returning the surrounding passage avoids dropping nearby facts. This proves textual support, but evaluation must still check relevance and answer completeness.
 
 No agent framework, asynchronous queue, graph service, or new model download was necessary for this milestone.
+
+## Image observation preparation — 2026-09-12
+
+Assistant implemented decoding limits, structured references, separate inferences, original-byte preservation and versioned review drafts. Seventy-seven unit tests pass; live Gemma correctly reconstructs the labeled synthetic Client → API fixture. Real-diagram acceptance and learner understanding remain unassessed. Assignment: provide one real architecture diagram, then compare visible labels/arrows with the JSON observations and identify any uncertainty or unsupported claim before rendering or indexing.

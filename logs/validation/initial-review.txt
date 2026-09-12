@@ -1,6 +1,6 @@
-Documentation validation — 2026-09-11
+Documentation validation — 2026-09-12
 Command: python3 docs/validate.py
-Checked 11 required artifacts, 17 Markdown documents, 48 local links.
+Checked 11 required artifacts, 18 Markdown documents, 60 local links.
 Checked tracking fields, issue fields, log directories, and balanced code fences.
 Mermaid diagram manually inspected for declared nodes and consistent relationships; no Mermaid renderer executed.
 Scope excludes application tests, container startup, LLM evaluation, and user learning/approval.
