@@ -1,0 +1,221 @@
+{
+  "main": {
+    "id": "6237a998d1199008",
+    "type": "split",
+    "children": [
+      {
+        "id": "7a0edc60b4c0f8ff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c638c98e3d02403d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/decisions/ADR-004-document-extraction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ADR-004-document-extraction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f49c9bbe71e95ff",
+    "type": "split",
+    "children": [
+      {
+        "id": "845fdad3f9446f40",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6134cfb87d189a2f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f482d4295fe2f9cf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "5abd836f6be28c2d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "25bb36a60eef6f42",
+    "type": "split",
+    "children": [
+      {
+        "id": "f0dda752d8f8da59",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e4b55a6b870d3eae",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/decisions/ADR-004-document-extraction.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "c5ff6fcfa8b6382e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/decisions/ADR-004-document-extraction.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "68f73ca70b35bc94",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "380c230e0a3dce42",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "4f43896b33fd220c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/decisions/ADR-004-document-extraction.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c638c98e3d02403d",
+  "lastOpenFiles": [
+    "logs/validation/ai-embeddings-review.md",
+    "logs/validation/image-001-focused.json",
+    "logs/runtime/image-001-qwen-focused.txt",
+    "documents/generated/image-analysis/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6-03ab445bd56d426ba0f9aed670a17507.json",
+    "logs/validation/image-001-focused-response.json",
+    "logs/runtime/image-001-focused-final.txt",
+    "logs/runtime/image-001-focused.txt",
+    "logs/validation/phase-3.1-real-unit.txt",
+    "logs/validation/image-001-gemma.json",
+    "tests/evaluation/__pycache__/validate_real_image.cpython-314.pyc",
+    "tests/evaluation/validate_real_image.py",
+    "images/processed/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6.png",
+    "images/incoming/AI-Embedings.png",
+    "images/incoming/image.png",
+    "docs/decisions/ADR-007-image-observation-drafts.md",
+    "tests/fixtures/synthetic-architecture.png",
+    "docs/decisions/ADR-006-cited-extractive-rag.md",
+    "docs/decisions/ADR-005-local-model-ingestion.md",
+    "tests/fixtures/storage-guide.md",
+    "docs/decisions/ADR-003-compose-storage.md",
+    "docs/decisions/ADR-002-api-foundation.md",
+    "docs/decisions/ADR-001-incremental-foundation.md",
+    "docs/architecture/vision.md",
+    "docs/architecture/current.md",
+    "directive.md",
+    "README.md",
+    "docs/architecture/component-map.md"
+  ]
+}

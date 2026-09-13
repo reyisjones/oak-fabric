@@ -6,12 +6,12 @@ Updated: 2026-09-12.
 | --- | --- |
 | Current Phase | Phase 3 — Image analyzer; real-diagram acceptance pending |
 | Last Completed Task | 2.3 source-grounded document RAG, including strict live evaluation |
-| Current Task | 3.1 code and synthetic vision validation complete; real-diagram acceptance pending |
+| Current Task | 3.1 real-image validation: IMAGE-001 extraction accuracy unresolved |
 | Pending Tasks | Image analysis and later phases |
-| Open Issues | Real source image needed; DEPS-001 upstream test warnings; local deployment limitations |
-| Recent Fixes | Restored temporary Docker config and started Docker Desktop |
+| Open Issues | IMAGE-001 real-image extraction accuracy; IMAGE-002 Qwen response failure; DEPS-001 upstream test warnings; local deployment limitations |
+| Recent Fixes | Added provenance-recorded panel focus; real-image accuracy remains under validation |
 | Architecture Decisions | ADR-007 image observation drafts; previous ingestion/RAG ADRs |
-| Next Recommended Action | Supply one real architecture image for milestone 3.1 |
+| Next Recommended Action | Diagnose vision structured-output behavior; retain failed real-image acceptance |
 
 ## Completed
 
@@ -21,7 +21,7 @@ Evidence: [real ingestion](../logs/validation/phase-2.2-ingestion.txt), [failure
 
 ## In Progress
 
-Milestone 3.1 implementation has begun with structural tests and a clearly labeled synthetic vision fixture. Phase 2 live evaluation passed source retrieval, two-part completeness, exact passage support and unsupported-question abstention. The approved document, source bytes and vectors also survived restart. Seventy-seven unit tests and the real LM Studio synthetic-image smoke test pass; a supplied real diagram is still required to complete 3.1.
+Milestone 3.1 has structural tests, a synthetic vision fixture, and the supplied AI-Embedings.png. Full-image Gemma outputs failed node/edge checks; a focused result omitted two nodes and invented a shortcut. Qwen returned empty content on the focused retry; structural validation rejected it. Phase 2 live evaluation passed source retrieval, two-part completeness, exact passage support and unsupported-question abstention. The approved document, source bytes and vectors also survived restart. Seventy-eight unit tests and the real LM Studio synthetic-image smoke test pass; the supplied cheat sheet is being validated to complete 3.1.
 
 ## Pending
 
@@ -29,7 +29,7 @@ Real-image acceptance, structured architecture rendering/review, Neo4j, GraphRAG
 
 ## Blocked
 
-No provider blocker. Phase 3 requires a real source architecture image; none was supplied in the initial inventory. The previous initial architecture checkpoint was explicitly released by the user.
+No provider blocker. AI-Embedings.png is now supplied; real-image acceptance is held by IMAGE-001 (section headings extracted instead of internal flow nodes). The previous initial architecture checkpoint was explicitly released by the user.
 
 ## Issues Found
 
@@ -45,11 +45,11 @@ Recreated the expired temporary Docker client configuration; Docker startup and 
 
 ## Known limitations and technical debt
 
-Image analysis exists as a local CLI; no HTTP image endpoint, architecture rendering or graph integration yet. No OCR/table reconstruction. Authenticated local uploads are trusted; hostile PDF processing needs stronger process isolation before public exposure. Single-node HTTP is not production deployment. Model changes require index migration. Character chunking is not a token guarantee. Exact quotes prove textual support but do not alone prove relevance/completeness. Two dependency deprecation warnings remain. Image tags are not digest-pinned.
+Image analysis exists as a local CLI with explicit panel focus; dense-infographic reconstruction is not reliable yet; no HTTP image endpoint, architecture rendering or graph integration yet. No OCR/table reconstruction. Authenticated local uploads are trusted; hostile PDF processing needs stronger process isolation before public exposure. Single-node HTTP is not production deployment. Model changes require index migration. Character chunking is not a token guarantee. Exact quotes prove textual support but do not alone prove relevance/completeness. Two dependency deprecation warnings remain. Image tags are not digest-pinned.
 
 ## Next Task
 
-Complete milestone 3.1 using a supplied real diagram; preserve its original bytes and distinguish observed facts from uncertainty. Learning assignments are available without requiring repeated architecture approval.
+Diagnose the vision provider failures recorded in the real-image review, then complete milestone 3.1 using AI-Embedings.png; preserve its original bytes and distinguish observed facts from uncertainty. Learning assignments are available without requiring repeated architecture approval.
 
 Final Phase 2 evidence: [unit suite](../logs/validation/phase-2-final-unit.txt) and [strict real-model evaluation](../logs/validation/phase-2.3-passage-evaluation.jsonl). Three cases are a baseline, not broad quality certification.
 
@@ -58,3 +58,5 @@ Post-restart evidence: [approved document persistence](../logs/validation/phase-
 Phase 3 evidence: [unit tests](../logs/validation/phase-3.1-unit.txt), [synthetic vision smoke](../logs/validation/phase-3.1-vision-smoke.txt), [structured output](../logs/validation/phase-3.1-synthetic-analysis.json), and [ADR-007](decisions/ADR-007-image-observation-drafts.md). Synthetic testing does not mark milestone 3.1 complete.
 
 Container packaging and health evidence: [final image-analysis build](../logs/build/phase-3.1-container-final.txt).
+
+Real-image result: [visual review and failed acceptance](../logs/validation/ai-embeddings-review.md). The source is present; the remaining blocker is extraction correctness, not missing user input.

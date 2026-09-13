@@ -1,0 +1,37 @@
+{
+  "draft": "documents/generated/image-analysis/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6-03ab445bd56d426ba0f9aed670a17507.json",
+  "model": "google/gemma-4-e4b",
+  "scope": "Panel 11: COMPLETE RAG EMBEDDING FLOW",
+  "result": "FAIL",
+  "source_bytes_preserved": true,
+  "missing_nodes": [
+    "relevant context",
+    "user query",
+    "vector database"
+  ],
+  "missing_edges": [
+    [
+      "embeddings",
+      "vector database"
+    ],
+    [
+      "relevant context",
+      "llm"
+    ],
+    [
+      "similarity search (top-k)",
+      "relevant context"
+    ],
+    [
+      "user query",
+      "query embedding"
+    ]
+  ],
+  "unexpected_panel_edges": [
+    [
+      "similarity search (top-k)",
+      "llm"
+    ]
+  ],
+  "limitation": "Exact panel-11 subset check; full visual review and human approval are separate."
+}

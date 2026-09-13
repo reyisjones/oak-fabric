@@ -47,3 +47,7 @@ See [ADR-005](../decisions/ADR-005-local-model-ingestion.md) and [ADR-006](../de
 ## Image analyzer under milestone 3.1
 
 The local CLI in src/ingestion/images.py preserves source bytes and writes a new review JSON draft. src/extraction/images.py validates decoded input and calls the existing LM Studio client with image bytes and an explicit schema. src/extraction/architecture.py validates component/connection/boundary references and separates inference from proposed observations. No data is published to RAG from these drafts. A synthetic vision smoke test passes; real-diagram reconstruction remains unvalidated. See [ADR-007](../decisions/ADR-007-image-observation-drafts.md).
+
+### Dense image scope
+
+The image CLI accepts optional `--focus` text identifying one panel in a multi-diagram image. It sends the complete original to the existing local vision provider and records the requested scope alongside the draft. It does not crop, merge panels, infer missing connectors, or publish automatically. Real-image evaluation uses a separately transcribed panel-11 node/edge baseline in tests/evaluation/ai-embeddings-expected.json. Passing that subset does not validate all text or diagrams in the infographic.

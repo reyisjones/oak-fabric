@@ -153,3 +153,37 @@ BUILD-003 configuration fix confirmed: Compose is discovered again; retry reache
 - Status: In progress.
 
 ENV-003 resolution: Docker Desktop startup completed successfully and the rebuilt API, PostgreSQL and MinIO containers all passed health checks. Evidence: [startup](../runtime/phase-3.1-docker-start.txt) and [final build](../build/phase-3.1-container-final.txt). Status: resolved.
+
+## IMAGE-001
+
+- ID: IMAGE-001
+- Date: 2026-09-12
+- Component: Vision extraction of multi-panel diagrams
+- Symptom: Real cheat-sheet extraction returned section headings as components, zero arrows, and misread section 12.
+- Root Cause: The extraction prompt did not distinguish informational panel headings from nodes within embedded diagrams.
+- Fix: Explicitly extract nodes and arrows inside each diagram panel, keeping repeated nodes distinct and headings as grouping context.
+- Validation: Initial draft retained under documents/generated/image-analysis; focused real-image retry pending.
+- Status: In progress.
+
+IMAGE-001 retry: the clarified prompt still produced zero arrows and omitted panel 11, filling the 50-component limit with prose. Prompt-only correction failed. Next focused diagnostic: run the same source and contract with the already installed Qwen vision model to distinguish provider capability from workflow defects. No additional model download.
+
+IMAGE-001 next focused fix: add an explicit, provenance-recorded panel focus to the existing CLI. Dense infographics can be analyzed one diagram at a time while preserving the full original. No image crop or fabricated connection is introduced. Retry scope: panel 11 only.
+
+## IMAGE-002
+
+- ID: IMAGE-002
+- Date: 2026-09-12
+- Component: Qwen local vision diagnostic
+- Symptom: No response headers arrived before the 120-second client timeout.
+- Root Cause: Provider inference did not finish within the configured request window; loading versus generation cost is unconfirmed.
+- Fix: No speculative timeout increase; retain bounded requests and return to Gemma with a narrower panel scope for IMAGE-001.
+- Validation: Timeout captured in [runtime log](../runtime/image-001-qwen.txt); original retained, no Qwen draft created.
+- Status: Open diagnostic limitation; Qwen is not selected as the validated image provider.
+
+IMAGE-001 focused retry reached panel 11 but was rejected for duplicate connections ([log](../runtime/image-001-focused.txt)). Validation correctly prevented acceptance. Focused follow-up: explicitly require each edge once; capture the controlled real-image model response in the evaluation log to inspect any remaining factual or structural errors. Structural validation remains unchanged.
+
+IMAGE-001 final Gemma focus outcome: structurally valid but visually incorrect. Vector Database and Relevant Context are missing, User Query is shortened to Query, and Similarity Search → LLM is an unsupported shortcut. [Subset evaluation](../validation/image-001-focused.json) fails. Focus support is retained as an explicitly scoped feature, not claimed as a complete accuracy fix. A warm Qwen focused comparison is pending.
+
+IMAGE-002 follow-up: the focused Qwen retry responded within the request window but returned empty content, rejected as invalid JSON ([log](../runtime/image-001-qwen-focused.txt)). The timeout is not consistently reproducible; provider structured-output/generation behavior needs diagnosis. No model output was accepted. Status: open.
+
+IMAGE-001 current outcome: automatic real-image acceptance remains failed after targeted prompt and panel-focus attempts. Original-byte checks pass; 78 unit tests pass. Detailed [visual review](../validation/ai-embeddings-review.md) records expected source facts and every attempt. Status: open; milestone 3.1 remains incomplete and 3.2 has not started.

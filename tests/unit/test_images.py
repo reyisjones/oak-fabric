@@ -134,3 +134,23 @@ def test_corrupted_preserved_source_is_not_overwritten(tmp_path,monkeypatch):
     original.write_bytes(b'corrupt')
     with pytest.raises(ValueError,match='checksum'): process_image(source,client(monkeypatch),tmp_path)
     assert original.read_bytes()==b'corrupt'
+
+
+def test_panel_focus_preserves_full_source_and_records_scope(tmp_path, monkeypatch):
+    source = tmp_path / 'incoming.png'
+    source.write_bytes(png())
+    model = client(monkeypatch)
+    captured = []
+    respond = model._post
+
+    def capture(path, payload):
+        captured.append(payload)
+        return respond(path, payload)
+
+    monkeypatch.setattr(model, '_post', capture)
+    output = process_image(source, model, tmp_path, focus='Panel 11')
+    draft = json.loads(output.read_text())
+    assert draft['focus'] == 'Panel 11'
+    assert 'Panel 11' in captured[0]['messages'][1]['content'][0]['text']
+    assert (tmp_path / draft['preserved_source']).read_bytes() == source.read_bytes()
+    assert draft['status'] == 'review'

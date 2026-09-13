@@ -1,0 +1,8 @@
+{
+  "source": "images/incoming/AI-Embedings.png",
+  "scope": "Panel 11: COMPLETE RAG EMBEDDING FLOW",
+  "components": ["Documents", "Chunking", "Embeddings", "Vector Database", "User Query", "Query Embedding", "Similarity Search (Top-K)", "Relevant Context", "LLM", "Answer"],
+  "connections": [["Documents", "Chunking"], ["Chunking", "Embeddings"], ["Embeddings", "Vector Database"], ["User Query", "Query Embedding"], ["Query Embedding", "Similarity Search (Top-K)"], ["Similarity Search (Top-K)", "Relevant Context"], ["Relevant Context", "LLM"], ["LLM", "Answer"]],
+  "uncertainty": "No explicit connector is drawn from Vector Database to the lower query flow; do not invent one. Panel 11 does not name a concrete database or LLM vendor.",
+  "provenance": "Expected labels and arrow directions transcribed by Codex through direct visual inspection of the original image; not model output or human approval. Other panels are outside this acceptance subset."
+}

@@ -62,3 +62,11 @@ Run locally with LM Studio available:
 The CLI validates the image, copies its exact bytes to `images/processed/<sha256>.<extension>`, and creates a new JSON review draft under `documents/generated/image-analysis/`. Optional `--model` and `--base-url` select the vision model and endpoint. Incoming files and previous drafts are preserved. Analysis does not publish knowledge or add embeddings.
 
 Supported input: single-frame PNG, JPEG or WebP, at most 10 MiB and 16 million pixels. Observations and inferences are separate; visual accuracy requires review. A synthetic fixture smoke test passes, but acceptance on a real diagram remains pending. See [ADR-007](docs/decisions/ADR-007-image-observation-drafts.md).
+
+For a dense infographic containing several diagrams, restrict analysis to a named panel:
+
+```sh
+.venv/bin/python -m src.ingestion.images images/incoming/AI-Embedings.png --focus '11. COMPLETE RAG EMBEDDING FLOW'
+```
+
+The complete original is preserved; `focus` in the draft records the subset analyzed. A successful schema check does not prove visual accuracy. Compare the nodes and arrows against the source before proceeding. The supplied cheat sheet exposed extraction failures tracked as IMAGE-001; full-sheet automatic reconstruction is not validated.

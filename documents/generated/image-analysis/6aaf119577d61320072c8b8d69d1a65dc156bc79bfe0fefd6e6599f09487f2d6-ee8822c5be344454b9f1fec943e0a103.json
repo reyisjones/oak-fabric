@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "status": "review",
+  "created_at": "2026-09-12T23:24:39.126492+00:00",
+  "source": "images/incoming/AI-Embedings.png",
+  "preserved_source": "images/processed/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6.png",
+  "image": {
+    "sha256": "6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6",
+    "media_type": "image/png",
+    "extension": "png",
+    "width": 932,
+    "height": 1688
+  },
+  "model": "google/gemma-4-e4b",
+  "analysis": {
+    "title": "AI EMBEDDINGS COMPLETE CHEAT SHEET",
+    "components": [
+      {
+        "id": "a",
+        "label": "1. WHAT ARE EMBEDDINGS",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "b",
+        "label": "2. TEXT TO EMBEDDING",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "c",
+        "label": "3. EMBEDDING DIMENSIONS",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "d",
+        "label": "4. SEMANTIC SIMILARITY",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "e",
+        "label": "5. COSINE SIMILARITY",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "f",
+        "label": "6. TYPES OF EMBEDDINGS",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "g",
+        "label": "7. EMBEDDINGS VS TOKENS",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "h",
+        "label": "8. EMBEDDINGS VS LLMS",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "i",
+        "label": "9. CHUNKING + EMBEDDINGS",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "j",
+        "label": "10. EMBEDDINGS + VECTOR DB",
+        "technology": null,
+        "evidence": "text box"
+      },
+      {
+        "id": "k",
+        "label": "11. COMPLETE RAG EMBEDDING FLOW",
+        "technology": null,
+        "evidence": "diagram"
+      },
+      {
+        "id": "l",
+        "label": "12. POPULAR MODELING ENDPOINTS",
+        "technology": null,
+        "evidence": "list"
+      },
+      {
+        "id": "m",
+        "label": "13. COMMON MISTAKES",
+        "technology": null,
+        "evidence": "list"
+      },
+      {
+        "id": "n",
+        "label": "14. INTERVIEW QUESTIONS",
+        "technology": null,
+        "evidence": "list"
+      },
+      {
+        "id": "o",
+        "label": "15. BEST PRACTICES",
+        "technology": null,
+        "evidence": "list"
+      }
+    ],
+    "connections": [],
+    "boundaries": [],
+    "uncertainties": [
+      "The diagram is a cheat sheet containing multiple sections (1 through 15) rather than a single flow diagram. The main body of the image is structured as a grid of informational blocks, with section 11 showing a flow diagram (RAG process) and the rest being textual explanations or lists. The connections between sections 1-10 and 12-15 are conceptual or sequential (e.g., the flow in section 11), but no explicit directed arrows connect all these blocks into a single unified architecture diagram. The flow in section 11 (k) is the most clearly defined process flow, but it is only one part of the overall image content."
+    ],
+    "inferences": [
+      "The image presents a comprehensive guide on AI Embeddings, covering theory (sections 1-10), practical application flows (section 11), and related knowledge bases (sections 12-15). Section 11 illustrates the Retrieval Augmented Generation (RAG) workflow, which is a specific application of embeddings. The overall structure is that of an educational cheat sheet rather than a single, monolithic architecture diagram."
+    ]
+  },
+  "validation": {
+    "structure": "passed",
+    "visual_accuracy": "not_reviewed"
+  }
+}

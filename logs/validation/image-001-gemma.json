@@ -1,0 +1,111 @@
+[
+  {
+    "draft": "documents/generated/image-analysis/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6-0a90630856fe4c82a7c4444cd35e60d3.json",
+    "model": "google/gemma-4-e4b",
+    "scope": "Panel 11: COMPLETE RAG EMBEDDING FLOW",
+    "result": "FAIL",
+    "source_bytes_preserved": true,
+    "missing_nodes": [
+      "answer",
+      "chunking",
+      "documents",
+      "llm",
+      "query embedding",
+      "relevant context",
+      "similarity search (top-k)",
+      "user query",
+      "vector database"
+    ],
+    "missing_edges": [
+      [
+        "chunking",
+        "embeddings"
+      ],
+      [
+        "documents",
+        "chunking"
+      ],
+      [
+        "embeddings",
+        "vector database"
+      ],
+      [
+        "llm",
+        "answer"
+      ],
+      [
+        "query embedding",
+        "similarity search (top-k)"
+      ],
+      [
+        "relevant context",
+        "llm"
+      ],
+      [
+        "similarity search (top-k)",
+        "relevant context"
+      ],
+      [
+        "user query",
+        "query embedding"
+      ]
+    ],
+    "unexpected_panel_edges": [],
+    "limitation": "Exact panel-11 subset check; full visual review and human approval are separate."
+  },
+  {
+    "draft": "documents/generated/image-analysis/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6-ee8822c5be344454b9f1fec943e0a103.json",
+    "model": "google/gemma-4-e4b",
+    "scope": "Panel 11: COMPLETE RAG EMBEDDING FLOW",
+    "result": "FAIL",
+    "source_bytes_preserved": true,
+    "missing_nodes": [
+      "answer",
+      "chunking",
+      "documents",
+      "embeddings",
+      "llm",
+      "query embedding",
+      "relevant context",
+      "similarity search (top-k)",
+      "user query",
+      "vector database"
+    ],
+    "missing_edges": [
+      [
+        "chunking",
+        "embeddings"
+      ],
+      [
+        "documents",
+        "chunking"
+      ],
+      [
+        "embeddings",
+        "vector database"
+      ],
+      [
+        "llm",
+        "answer"
+      ],
+      [
+        "query embedding",
+        "similarity search (top-k)"
+      ],
+      [
+        "relevant context",
+        "llm"
+      ],
+      [
+        "similarity search (top-k)",
+        "relevant context"
+      ],
+      [
+        "user query",
+        "query embedding"
+      ]
+    ],
+    "unexpected_panel_edges": [],
+    "limitation": "Exact panel-11 subset check; full visual review and human approval are separate."
+  }
+]

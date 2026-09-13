@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/Users/reyisnieves/Dev/oak-fabric/src/extraction/images.py", line 93, in analyze_image
+    return ArchitectureObservation.model_validate_json(choice["message"]["content"], strict=True)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/reyisnieves/Dev/oak-fabric/.venv/lib/python3.14/site-packages/pydantic/main.py", line 782, in model_validate_json
+    return cls.__pydantic_validator__.validate_json(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        json_data, strict=strict, extra=extra, context=context, by_alias=by_alias, by_name=by_name
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ArchitectureObservation
+  Invalid JSON: EOF while parsing a value at line 1 column 0 [type=json_invalid, input_value='', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/reyisnieves/Dev/oak-fabric/src/ingestion/images.py", line 57, in <module>
+    print(process_image(args.source, client, focus=args.focus))
+          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/reyisnieves/Dev/oak-fabric/src/ingestion/images.py", line 31, in process_image
+    observation = analyze_image(content, model, focus=focus)
+  File "/Users/reyisnieves/Dev/oak-fabric/src/extraction/images.py", line 95, in analyze_image
+    raise ModelError("Image analysis failed structural validation; no draft was accepted") from exc
+src.embeddings.client.ModelError: Image analysis failed structural validation; no draft was accepted

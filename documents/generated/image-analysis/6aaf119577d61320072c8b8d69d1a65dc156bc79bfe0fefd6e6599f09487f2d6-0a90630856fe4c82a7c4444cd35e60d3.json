@@ -1,0 +1,332 @@
+{
+  "schema_version": 1,
+  "status": "review",
+  "created_at": "2026-09-12T23:27:00.578381+00:00",
+  "source": "images/incoming/AI-Embedings.png",
+  "preserved_source": "images/processed/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6.png",
+  "image": {
+    "sha256": "6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6",
+    "media_type": "image/png",
+    "extension": "png",
+    "width": 932,
+    "height": 1688
+  },
+  "model": "google/gemma-4-e4b",
+  "analysis": {
+    "title": "AI Embeddings Complete Cheat Sheet",
+    "components": [
+      {
+        "id": "a",
+        "label": "1. WHAT ARE EMBEDDINGS",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "b",
+        "label": "Embeddings are numerical vector representations of data (text, images, audio, etc.) that capture semantic meaning.",
+        "technology": null,
+        "evidence": "Text description"
+      },
+      {
+        "id": "c",
+        "label": "A \"cat is a small animal\"",
+        "technology": null,
+        "evidence": "Example text"
+      },
+      {
+        "id": "d",
+        "label": "2. TEXT TO EMBEDDING",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "e",
+        "label": "Text Input",
+        "technology": null,
+        "evidence": "Input component"
+      },
+      {
+        "id": "f",
+        "label": "A happy dog in the park",
+        "technology": null,
+        "evidence": "Example text"
+      },
+      {
+        "id": "g",
+        "label": "Embedding Model (OpenAI, BGE, etc.)",
+        "technology": null,
+        "evidence": "Process component"
+      },
+      {
+        "id": "h",
+        "label": "Vector Embedding (dimension = 768, 1024, etc.)",
+        "technology": null,
+        "evidence": "Output component"
+      },
+      {
+        "id": "i",
+        "label": "0.23, -0.11, 0.67, 0.09 ...",
+        "technology": null,
+        "evidence": "Vector representation"
+      },
+      {
+        "id": "j",
+        "label": "3. EMBEDDING DIMENSIONS",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "k",
+        "label": "Embeddings are high-dimensional vectors.",
+        "technology": null,
+        "evidence": "Text description"
+      },
+      {
+        "id": "l",
+        "label": "Examples:",
+        "technology": null,
+        "evidence": "List header"
+      },
+      {
+        "id": "m",
+        "label": "OpenAI text-embedding-3 small",
+        "technology": null,
+        "evidence": "Example model"
+      },
+      {
+        "id": "n",
+        "label": "1536",
+        "technology": null,
+        "evidence": "Dimension value"
+      },
+      {
+        "id": "o",
+        "label": "BGE (BAAI)",
+        "technology": null,
+        "evidence": "Example model"
+      },
+      {
+        "id": "p",
+        "label": "768 / 1024",
+        "technology": null,
+        "evidence": "Dimension value"
+      },
+      {
+        "id": "q",
+        "label": "Sentence Transformers",
+        "technology": null,
+        "evidence": "Example model"
+      },
+      {
+        "id": "r",
+        "label": "384 / 768",
+        "technology": null,
+        "evidence": "Dimension value"
+      },
+      {
+        "id": "s",
+        "label": "CLIP (Image)",
+        "technology": null,
+        "evidence": "Example model"
+      },
+      {
+        "id": "t",
+        "label": "512",
+        "technology": null,
+        "evidence": "Dimension value"
+      },
+      {
+        "id": "u",
+        "label": "Whisper (Audio)",
+        "technology": null,
+        "evidence": "Example model"
+      },
+      {
+        "id": "v",
+        "label": "768",
+        "technology": null,
+        "evidence": "Dimension value"
+      },
+      {
+        "id": "w",
+        "label": "4. SEMANTIC SIMILARITY",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "x",
+        "label": "Similar meaning = closer vectors (even if words are different).",
+        "technology": null,
+        "evidence": "Text description"
+      },
+      {
+        "id": "y",
+        "label": "\"kitten\"",
+        "technology": null,
+        "evidence": "Example word"
+      },
+      {
+        "id": "z",
+        "label": "\"cur\"",
+        "technology": "null",
+        "evidence": "Example word"
+      },
+      {
+        "id": "aa",
+        "label": "\"vehicle\"",
+        "technology": null,
+        "evidence": "Example word"
+      },
+      {
+        "id": "bb",
+        "label": "\"automobile\"",
+        "technology": null,
+        "evidence": "Example word"
+      },
+      {
+        "id": "cc",
+        "label": "5. COSINE SIMILARITY",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "dd",
+        "label": "Measures the angle between two vectors (not distance).",
+        "technology": null,
+        "evidence": "Text description"
+      },
+      {
+        "id": "ee",
+        "label": "sim(A, B) = $\\frac{A \\cdot B}{\\|A\\| \\|B\\||}$",
+        "technology": null,
+        "evidence": "Formula"
+      },
+      {
+        "id": "ff",
+        "label": "Cosine similarity ranges from -1 to 1.",
+        "technology": null,
+        "evidence": "Text description"
+      },
+      {
+        "id": "gg",
+        "label": "1 = identical",
+        "technology": null,
+        "evidence": "Interpretation"
+      },
+      {
+        "id": "hh",
+        "label": "0 = no similarity",
+        "technology": null,
+        "evidence": "Interpretation"
+      },
+      {
+        "id": "ii",
+        "label": "$\\|A\\| \\cdot \\|B\\|$",
+        "technology": null,
+        "evidence": "Denominator term"
+      },
+      {
+        "id": "jj",
+        "label": "6. TYPES OF EMBEDDINGS",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "kk",
+        "label": "Text Embeddings (quores, documents, etc.)",
+        "technology": null,
+        "evidence": "Type example"
+      },
+      {
+        "id": "ll",
+        "label": "Image Embeddings (CLIP, vision models)",
+        "technology": null,
+        "evidence": "Type example"
+      },
+      {
+        "id": "mm",
+        "label": "Audio Embeddings (Whisper, audio models)",
+        "technology": null,
+        "evidence": "Type example"
+      },
+      {
+        "id": "nn",
+        "label": "Video Embeddings (combination of image + audio)",
+        "technology": null,
+        "evidence": "Type example"
+      },
+      {
+        "id": "oo",
+        "label": "7. EMBEDDINGS VS TOKENS",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "pp",
+        "label": "TOKENS",
+        "technology": null,
+        "evidence": "Column header"
+      },
+      {
+        "id": "qq",
+        "label": "EMBEDDINGS",
+        "technology": null,
+        "evidence": "Column header"
+      },
+      {
+        "id": "rr",
+        "label": "Pieces of text (words/subwords)",
+        "technology": null,
+        "evidence": "TOKENS description"
+      },
+      {
+        "id": "ss",
+        "label": "Vector representation of text",
+        "technology": null,
+        "evidence": "EMBEDDINGS description"
+      },
+      {
+        "id": "tt",
+        "label": "8. EMBEDDINGS VS LLMS",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "uu",
+        "label": "Embeddings are used for searching, RAG, etc.",
+        "technology": null,
+        "evidence": "Usage description"
+      },
+      {
+        "id": "vv",
+        "label": "LLMs are used for chat, analysis, content generation.",
+        "technology": null,
+        "evidence": "Usage description"
+      },
+      {
+        "id": "ww",
+        "label": "9. CHUNKING + EMBEDDINGS",
+        "technology": null,
+        "evidence": "Section title"
+      },
+      {
+        "id": "xx",
+        "label": "Split large documents into smaller chunks, create embeddings for each chunk.",
+        "technology": null,
+        "evidence": "Process description (9)"
+      }
+    ],
+    "connections": [],
+    "boundaries": [],
+    "uncertainties": [
+      "The diagram is a cheat sheet covering multiple related concepts (Embeddings, Similarity, Types, Usage) and presents them in a multi-panel layout. The flow is conceptual rather than a single linear architecture diagram, making strict process flow extraction challenging without inventing steps. The relationship between the various sections (1-8) is thematic rather than sequential, except where implied by a process flow (e.g., Text -> Embedding)."
+    ],
+    "inferences": [
+      "The diagram uses a cheat sheet format to present definitions and comparisons. The main conceptual flow is: Data -> Embedding Model -> Vector Representation (Embedding) -> Similarity Search/Usage. The sections 1-8 are distinct conceptual blocks, not necessarily sequential steps in a single pipeline."
+    ]
+  },
+  "validation": {
+    "structure": "passed",
+    "visual_accuracy": "not_reviewed"
+  }
+}

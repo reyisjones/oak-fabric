@@ -22,3 +22,14 @@ No agent framework, asynchronous queue, graph service, or new model download was
 ## Image observation preparation — 2026-09-12
 
 Assistant implemented decoding limits, structured references, separate inferences, original-byte preservation and versioned review drafts. Seventy-seven unit tests pass; live Gemma correctly reconstructs the labeled synthetic Client → API fixture. Real-diagram acceptance and learner understanding remain unassessed. Assignment: provide one real architecture diagram, then compare visible labels/arrows with the JSON observations and identify any uncertainty or unsupported claim before rendering or indexing.
+
+### Real image validation — 2026-09-12
+
+- Topic: Schema validity versus factual accuracy in vision extraction.
+- Status: AI-Embedings.png supplied; real-model accuracy debugging in progress.
+- What I implemented: Preserved the source, recorded explicit panel scope, added a node/edge baseline from visual inspection and retained failed extraction evidence.
+- What I understand: User understanding remains unassessed.
+- Questions: Which arrows are actually drawn, and which would merely be expected in a typical RAG architecture?
+- Mistakes: Gemma returned headings instead of nodes; a focused attempt duplicated edges. Qwen timed out on the full image and returned empty content on the focused retry.
+- Concepts to revisit: Prompt compliance is not a correctness guarantee; schema validation and source comparison are complementary.
+- Next assignment: Inspect panel 11 and compare the two rows with the expected node/edge fixture. Notice the absent connection between the vector database and query row.

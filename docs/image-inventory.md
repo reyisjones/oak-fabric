@@ -15,3 +15,11 @@ Rechecked 2026-09-11 after document RAG completion: no PNG/JPEG/WebP/GIF source 
 | Current fixture | Origin | Components | Relationship | Scope |
 | --- | --- | --- | --- | --- |
 | [synthetic-architecture.png](../tests/fixtures/synthetic-architecture.png) | Programmatically generated test image | Client, API; no technology names printed | Client → API, labeled request | Live vision smoke only; not canonical knowledge |
+
+## User source received 2026-09-12
+
+[AI-Embedings.png](../images/incoming/AI-Embedings.png) is a 932 × 1688 educational cheat sheet titled “AI EMBEDDINGS COMPLETE CHEAT SHEET”, attributed in the image to @techly23. It contains multiple diagrams and explanatory panels, not one deployed architecture. Original SHA-256: `6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6`.
+
+Panel 11 visibly contains Documents → Chunking → Embeddings → Vector Database and User Query → Query Embedding → Similarity Search (Top-K) → Relevant Context → LLM → Answer. No explicit connection joins the two rows. Panel 2 contains Text Input → Embedding Model → Vector Embedding. Technology examples elsewhere include OpenAI, BGE, Sentence Transformers, CLIP, Whisper, Pinecone, Milvus and Weaviate; these are examples printed in the source, not verified deployment choices. Potential documentation topic: embeddings and RAG flows. Numerical/product claims in the cheat sheet have not been independently verified.
+
+The source has been preserved byte-for-byte. The initial model extraction failed visual acceptance (IMAGE-001); it must not be promoted to canonical knowledge. The earlier “no source” entries above describe the historical inventory only.

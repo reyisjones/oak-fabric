@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "review",
+  "created_at": "2026-09-12T23:32:27.908143+00:00",
+  "source": "images/incoming/AI-Embedings.png",
+  "preserved_source": "images/processed/6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6.png",
+  "focus": "11. COMPLETE RAG EMBEDDING FLOW",
+  "image": {
+    "sha256": "6aaf119577d61320072c8b8d69d1a65dc156bc79bfe0fefd6e6599f09487f2d6",
+    "media_type": "image/png",
+    "extension": "png",
+    "width": 932,
+    "height": 1688
+  },
+  "model": "google/gemma-4-e4b",
+  "analysis": {
+    "title": "null",
+    "components": [
+      {
+        "id": "doc",
+        "label": "Documents",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "chunky",
+        "label": "Chunking",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "emb",
+        "label": "Embeddings",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "qr",
+        "label": "Query",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "sim",
+        "label": "Similarity Search (Top-K)",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "qr2",
+        "label": "Query Embedding",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "llm",
+        "label": "LLM",
+        "technology": null,
+        "evidence": "Process box label"
+      },
+      {
+        "id": "ans",
+        "label": "Answer",
+        "technology": null,
+        "evidence": "Process box label"
+      }
+    ],
+    "connections": [
+      {
+        "source": "doc",
+        "target": "chunky",
+        "label": null,
+        "evidence": "Arrow from Documents to Chunking"
+      },
+      {
+        "source": "chunky",
+        "target": "emb",
+        "label": null,
+        "evidence": "Arrow from Chunking to Embeddings"
+      },
+      {
+        "source": "qr",
+        "target": "qr2",
+        "label": null,
+        "evidence": "Arrow from Query to Query Embedding"
+      },
+      {
+        "source": "qr2",
+        "target": "sim",
+        "label": null,
+        "evidence": "Arrow from Query Embedding to Similarity Search (Top-K)"
+      },
+      {
+        "source": "sim",
+        "target": "llm",
+        "label": null,
+        "evidence": "Arrow from Similarity Search (Top-K) to LLM"
+      },
+      {
+        "source": "llm",
+        "target": "ans",
+        "label": null,
+        "evidence": "Arrow from LLM to Answer"
+      }
+    ],
+    "boundaries": [
+      {
+        "label": "11. COMPLETE RAG EMBEDDING FLOW",
+        "component_ids": [
+          "doc",
+          "chunky",
+          "emb",
+          "qr",
+          "qr2",
+          "sim",
+          "llm",
+          "ans"
+        ],
+        "evidence": "Panel title/boundary"
+      }
+    ],
+    "uncertainties": [
+      "Only the components and connections within the '11. COMPLETE RAG EMBEDDING FLOW' panel were extracted as requested."
+    ],
+    "inferences": []
+  },
+  "validation": {
+    "structure": "passed",
+    "visual_accuracy": "not_reviewed"
+  }
+}
